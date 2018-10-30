@@ -2,11 +2,12 @@
 ##section d'essais pour Markdown
 [Un lien vers hardhackers.com](http://www.hardhackers.com)
 
-~~~ c++
+
+~~~~~~~~
 #include <stdio.h>
 void main(int argc, char *argv[]{
 printf("hello world%d\n",3);
 }
-~~~
+~~~~~~~~
 
 
