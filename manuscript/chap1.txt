@@ -5,42 +5,56 @@
 ### Noms connus pour invoquer le compilateur
 
 Parmi les noms connus pour invoquer le compilateur, on trouve :
-**cpp**, **g++**, **gcc**, **gcc-x**, **c++**, **cpp-x** (x est le numéro de version du compilateur). Mais le véritable nom du compilateur est **gcc**. En principe, s'il est installé, cette commande doit répondre pour en particulier donner son numéro de version :
+**cpp**, **g++**, **gcc**, **gcc-x**, **c++**, **cpp-x** (x est le numéro de version du compilateur). 
+
+Mais le véritable nom du compilateur est **gcc**. En principe, s'il est installé, cette commande doit répondre pour en particulier donner son numéro de version :
 {lang="bash"}
-~~~~~~~~
+/~~~~~~~~
 gcc --version
-~~~~~~~~
+/~~~~~~~~
 
 Ceci est très important car les prises en charge du langage ne sont pas les mêmes selon la version.
 
 ### Commande pour invoquer le compilateur
+
 Comme il est dit précédemment,  le compilateur peut s'invoquer avec la commande **gcc**.
+
 ### Obtenir les options de compilation
+
 Les premières options de compilations peuvent être obtenue avec la commande :
-~~~~~~~~bash
+~~~~~~~~
 gcc --h
 ~~~~~~~~
 Bien sûr on peut afficher une page de manuel avec la commande :
-~~~~~~~~bash
+~~~~~~~~
 man gcc
 ~~~~~~~~
+
 ### Où se trouve le compilateur ?
+
 Tout d'abord, je signale qu'il est possible que vous invoquiez le compilateur par un lien symbolique (comme "**cpp**", c'est à dire que vous n'utilisez pas directement le fichier exécutable.
+
 Par exemple, vous pouvez connaître le dossier d'origine de la commande que vous tapez avec la commande **which**
 
-~~~~~~~~bash
+~~~~~~~~
 which gcc
 ~~~~~~~~
+
 Ensuite, une fois rendu dans le dossier en question (**cd le_dossier**), vous pouvez vérifier si le fichier **gcc** est un lien ou pas avec la commande **ls -l**
-~~~~~~~~bash
+
+~~~~~~~~
 ls -l gcc
 ~~~~~~~~
+
 La présence de -> montre qu'il y a présence d'un lien :
+
 ~~~~~~~~bash
 yannick@debian:/usr/bin$ ls -l gcc
 lrwxrwxrwx 1 root root 5 avril  8  2017 gcc -> gcc-6
 ~~~~~~~~
+
 On voit par exemple sur le listing ci-dessus que **gcc** est un lien qui mène vers **gcc-6**.
+
 Il peut exister de nombreux liens chaînés comme le montrent les commandes ci-dessous :
 
 {width=80%,float=right}
