@@ -9,8 +9,7 @@ Parmi les noms connus pour invoquer le compilateur, on trouve :
 
 Mais le véritable nom du compilateur est **gcc**. En principe, s'il est installé, cette commande doit répondre pour en particulier donner son numéro de version :
 
-{linenos=off}
-    gcc --version
+​    gcc --version
 
 Ceci est très important car les prises en charge du langage ne sont pas les mêmes selon la version.
 
@@ -52,7 +51,9 @@ Il peut exister de nombreux liens chaînés comme le montrent les commandes ci-d
 
 Au final, on voit sur l'exemple ci-dessus que le véritable nom du compilateur (le fichier exécutable) est **x86_64-linux-gnu-cpp-6**
 
-**Note : **  on peut afficher la liste des liens dans un dossier avec la commande  **ls -F**.
+**Note : **  on peut afficher la liste des liens dans un dossier avec la commande  :
+
+    ls -F
 
 Les liens seront reconnaissables car alors terminés par le symbole "**@**" :
 
