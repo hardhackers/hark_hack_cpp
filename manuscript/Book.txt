@@ -1,3 +1,3 @@
-chapter1.txt
+chap1.txt
 conclusion.txt
 essai_markdown.txt
