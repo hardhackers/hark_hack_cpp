@@ -32,7 +32,7 @@ Bien sûr on peut afficher une page de manuel avec la commande :
 
 ### Où se trouve le compilateur ?
 
-Tout d'abord, je signale qu'il est possible que vous invoquiez le compilateur par un lien symbolique (comme "**cpp**", c'est à dire que vous n'utilisez pas directement le fichier exécutable.
+Tout d'abord, je signale qu'il est possible que vous invoquiez le compilateur par un lien symbolique (comme "**cpp**", c'est à dire que vous n'utilisez pas directement le fichier exécutable).
 
 Par exemple, vous pouvez connaître le dossier d'origine de la commande que vous tapez avec la commande **which**
 
@@ -40,9 +40,6 @@ Par exemple, vous pouvez connaître le dossier d'origine de la commande que vous
     which gcc
 
 Ensuite, une fois rendu dans le dossier en question (**cd le_dossier**), vous pouvez vérifier si le fichier **gcc** est un lien ou pas avec la commande **ls -l**
-
-{linenos=off}
-    ls -l gcc
 
 La présence de -> montre qu'il y a présence d'un lien :
 
@@ -63,5 +60,5 @@ Au final, on voit sur l'exemple ci-dessus que le véritable nom du compilateur (
 Les liens seront reconnaissables car alors terminés par le symbole "**@**" :
 
 {width=10%,float=left}
-![Affichage des liens symboliques](compilateur/ls-F.png "Affichage des liens symboliques")
+![Affichage des liens symboliques](images/compilateur/ls-F.png "Affichage des liens symboliques")
 
