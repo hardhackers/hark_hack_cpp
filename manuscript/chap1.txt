@@ -22,15 +22,13 @@ Comme il est dit précédemment,  le compilateur peut s'invoquer avec la command
 
 Les premières options de compilations peuvent être obtenue avec la commande :
 
-~~~~~~~~
-gcc --h
-~~~~~~~~
+{linenos=off}
+    gcc --h
 
 Bien sûr on peut afficher une page de manuel avec la commande :
 
-~~~~~~~~
-man gcc
-~~~~~~~~
+{linenos=off}
+    man gcc
 
 ### Où se trouve le compilateur ?
 
@@ -38,35 +36,32 @@ Tout d'abord, je signale qu'il est possible que vous invoquiez le compilateur pa
 
 Par exemple, vous pouvez connaître le dossier d'origine de la commande que vous tapez avec la commande **which**
 
-~~~~~~~~
-which gcc
-~~~~~~~~
+{linenos=off}
+    which gcc
 
 Ensuite, une fois rendu dans le dossier en question (**cd le_dossier**), vous pouvez vérifier si le fichier **gcc** est un lien ou pas avec la commande **ls -l**
 
-~~~~~~~~
-ls -l gcc
-~~~~~~~~
+{linenos=off}
+    ls -l gcc
 
 La présence de -> montre qu'il y a présence d'un lien :
 
-~~~~~~~~bash
-yannick@debian:/usr/bin$ ls -l gcc
-lrwxrwxrwx 1 root root 5 avril  8  2017 gcc -> gcc-6
-~~~~~~~~
+{linenos=off}
+    yannick@debian:/usr/bin$ ls -l gcc
+    lrwxrwxrwx 1 root root 5 avril  8  2017 gcc -> gcc-6
 
 On voit par exemple sur le listing ci-dessus que **gcc** est un lien qui mène vers **gcc-6**.
 
 Il peut exister de nombreux liens chaînés comme le montrent les commandes ci-dessous :
 
-![Recherche lien commande cpp](img_chap1/compilateur/which_cpp.png)
+![Recherche lien commande cpp](images/which_cpp.png)
 
 Au final, on voit sur l'exemple ci-dessus que le véritable nom du compilateur (le fichier exécutable) est **x86_64-linux-gnu-cpp-6**
 
-**Note : ** on peut afficher la liste des liens dans un dossier avec la commande **ls -F**.
+**Note : **  on peut afficher la liste des liens dans un dossier avec la commande  **ls -F**.
 
 Les liens seront reconnaissables car alors terminés par le symbole "**@**" :
 
 {width=10%,float=left}
-![Affichage des liens symboliques](img_chap1/compilateur/ls-F.png "Affichage des liens symboliques")
+![Affichage des liens symboliques](compilateur/ls-F.png "Affichage des liens symboliques")
 
