@@ -51,7 +51,7 @@ On voit par exemple sur le listing ci-dessus que **gcc** est un lien qui mène v
 
 Il peut exister de nombreux liens chaînés comme le montrent les commandes ci-dessous :
 
-{width=90%,float=left}
+{width=110%}
 ![Recherche lien commande cpp](images/chap1/compilateur/which_cpp.png)
 
 Au final, on voit sur l'exemple ci-dessus que le véritable nom du compilateur (le fichier exécutable) est **x86_64-linux-gnu-cpp-6**
