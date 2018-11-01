@@ -8,10 +8,9 @@ Parmi les noms connus pour invoquer le compilateur, on trouve :
 **cpp**, **g++**, **gcc**, **gcc-x**, **c++**, **cpp-x** (x est le numéro de version du compilateur). 
 
 Mais le véritable nom du compilateur est **gcc**. En principe, s'il est installé, cette commande doit répondre pour en particulier donner son numéro de version :
+
 {linenos=off}
-~~~~~~~~
-gcc --version
-~~~~~~~~
+    gcc --version
 
 Ceci est très important car les prises en charge du langage ne sont pas les mêmes selon la version.
 
@@ -22,10 +21,13 @@ Comme il est dit précédemment,  le compilateur peut s'invoquer avec la command
 ### Obtenir les options de compilation
 
 Les premières options de compilations peuvent être obtenue avec la commande :
+
 ~~~~~~~~
 gcc --h
 ~~~~~~~~
+
 Bien sûr on peut afficher une page de manuel avec la commande :
+
 ~~~~~~~~
 man gcc
 ~~~~~~~~
@@ -57,14 +59,14 @@ On voit par exemple sur le listing ci-dessus que **gcc** est un lien qui mène v
 
 Il peut exister de nombreux liens chaînés comme le montrent les commandes ci-dessous :
 
-{width=80%,float=right}
-
-![Recherche lien commande cpp](img_chap1/compilateur/which_cpp.png "Recherche lien commande cpp")
+![Recherche lien commande cpp](img_chap1/compilateur/which_cpp.png)
 
 Au final, on voit sur l'exemple ci-dessus que le véritable nom du compilateur (le fichier exécutable) est **x86_64-linux-gnu-cpp-6**
 
 **Note : ** on peut afficher la liste des liens dans un dossier avec la commande **ls -F**.
+
 Les liens seront reconnaissables car alors terminés par le symbole "**@**" :
+
 {width=10%,float=left}
 ![Affichage des liens symboliques](img_chap1/compilateur/ls-F.png "Affichage des liens symboliques")
 
