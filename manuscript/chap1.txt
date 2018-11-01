@@ -1,10 +1,13 @@
 # Le compilateur
+
 ## Sous Linux
+
 ### Noms connus pour invoquer le compilateur
+
 Parmi les noms connus pour invoquer le compilateur, on trouve :
 **cpp**, **g++**, **gcc**, **gcc-x**, **c++**, **cpp-x** (x est le numéro de version du compilateur). Mais le véritable nom du compilateur est **gcc**. En principe, s'il est installé, cette commande doit répondre pour en particulier donner son numéro de version :
 
-~~~~~~~~bash
+~~~~~~~~sh
 gcc --version
 ~~~~~~~~
 
