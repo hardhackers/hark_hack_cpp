@@ -49,9 +49,9 @@ Il peut exister de nombreux liens chaînés comme le montrent les commandes ci-d
 {width=100%}
 ![Recherche lien commande cpp](images/chap1/compilateur/which_cpp.png)
 
-Au final, on voit sur l'exemple ci-dessus que le véritable nom du compilateur (le fichier exécutable) est **x86_64-linux-gnu-cpp-6**  
+Au final, on voit sur l'exemple ci-dessus que le véritable nom du compilateur (le fichier exécutable) est **x86_64-linux-gnu-cpp-6**
 
-**Note : **  on peut afficher la liste des liens dans un dossier avec la commande  :
+**Note :**  on peut afficher la liste des liens dans un dossier avec la commande  :
 
     ls -F
 
