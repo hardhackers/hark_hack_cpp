@@ -8,10 +8,10 @@ Parmi les noms connus pour invoquer le compilateur, on trouve :
 **cpp**, **g++**, **gcc**, **gcc-x**, **c++**, **cpp-x** (x est le numéro de version du compilateur). 
 
 Mais le véritable nom du compilateur est **gcc**. En principe, s'il est installé, cette commande doit répondre pour en particulier donner son numéro de version :
-{lang="bash"}
-/~~~~~~~~
+{linenos=off}
+~~~~~~~~
 gcc --version
-/~~~~~~~~
+~~~~~~~~
 
 Ceci est très important car les prises en charge du langage ne sont pas les mêmes selon la version.
 
