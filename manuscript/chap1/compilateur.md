@@ -79,15 +79,19 @@ Au final, on voit sur l'exemple ci-dessus que le véritable nom du compilateur (
 
 Les liens seront reconnaissables car alors terminés par le symbole "**@**" :
 
-{width=80%,float=left}
+{width=70%}
 ![Affichage des liens symboliques](images/chap1/compilateur/ls-F.png "Affichage des liens symboliques")
 
-#### Obtenir des informations précise sur l'exécutable
+
+
+#### Obtenir des informations précises sur l'exécutable
 
 La commande **file** permet d'obtenir un peu plus d'informations sur ce fichier :
 
     yannick@debian:/usr/bin$ file x86_64-linux-gnu-g++-6
     x86_64-linux-gnu-g++-6: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=8c9108996de1408c7aa0a2c42a5f4cc6492a0dd8, stripped
+
+
 
 
 
