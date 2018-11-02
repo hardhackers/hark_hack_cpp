@@ -1,13 +1,13 @@
 ## Sous Linux Debian Stretch
 
-Je dispose de **Stretch** qui est la dernière version de **Debian** et donc Vous devrez adapter l'installation à votre système si ce n'est pas le système Linux que vous avez.
+Je dispose de **Stretch** qui est la dernière version de **Debian** et donc vous devrez adapter l'installation à votre système si ce n'est pas la distribution Linux que vous avez.
 
 ### Noms connus pour invoquer le compilateur
 
-Parmi les noms connus pour faire "de la compilation",, on trouve :
+Parmi les noms connus pour faire "de la compilation", on trouve :
 **c++**, **cpp**, **g++**, **gcc**, **gcc-x**, **c++**, **cpp-x** (x est le numéro de version du fichier). 
 
-Comme on s'y perd un peu parmi ces noms, il faut comprendre que **g++** est le "**front end**", ce qui veut dire qu'il s'occupe de lancer dans cet ordre toute la chaîne de compilation. Il remplace **gcc** qui est prévu à l'origine pour le langage **C**, bien que **gcc** puisse compiler du code source c++ avec certaines options. Comme sont nom l'indique, *Gcc* veut dire : " **Gnu Compileur collection** ". Il s'agit d'une collection d'outil **Gnu** pour compiler des codes sources dans différents langages (dont C et C++). 
+Comme on s'y perd un peu parmi ces noms, il faut comprendre que **g++** est le "**front end**", ce qui veut dire qu'il s'occupe de lancer dans cet ordre toute la chaîne de compilation. Il remplace **gcc** qui est prévu à l'origine pour le langage **C**, bien que **gcc** puisse compiler du code source c++ avec certaines options. Comme son nom l'indique, *Gcc* veut dire : " **Gnu Compileur collection** ". Il s'agit d'une collection d'outils **Gnu** pour compiler des codes sources dans différents langages (dont C et C++). 
 
 ### Les éléments de la chaîne de compilation
 
@@ -30,7 +30,7 @@ Les premières options de compilations peuvent être obtenue avec la commande :
 
     g++ --h
 
-Bien sûr on peut afficher une page de manuel avec la commande :
+Bien sûr on peut afficher la page de manuel et de nombreuses informations avec la commande :
 
     man g++
 
@@ -61,9 +61,8 @@ Une fois rendu dans le dossier en question,  il est possible de vérifier si le 
 
     yannick@debian:/usr/bin$ ls -l g++
     lrwxrwxrwx 1 root root 5 avril  8  2017 g++ -> g++-6
-    
-On vient d'obtenir une information sur la version :
-On vérifie à nouveau :
+
+On vient d'obtenir une information sur la version qui est "6" dans mon cas. On vérifie à nouveau :
 
         yannick@debian:/usr/bin$ ls -l g++-6
         lrwxrwxrwx 1 root root 22 févr. 14  2018 g++-6 -> x86_64-linux-gnu-g++-6
