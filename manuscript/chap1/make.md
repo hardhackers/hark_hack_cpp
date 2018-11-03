@@ -22,13 +22,13 @@ Me concernant, il s'agit de la version "**GNU Make 4.1**"
 
 ### Premier makefile
 
-Le "**makefile**" est un fichier de configuration lu par l'utilitaire **make**. Il suffit de placer le fichier dans un dossier et de lancer **make** avec certaines options.
+Le "**makefile**" est un fichier de configuration lu par l'utilitaire **make**. Il suffit de placer le fichier dans un dossier et de lancer **make** dans ce même dossier avec certaines options.
 
-Le **makefile** a habituellement les noms de fichier suivants : "**makefile**", ou "**Makefile**".
+**Make** reconnaît pour son fichier de configuration les noms de fichier suivants : "**makefile**", ou "**Makefile**".
 
 Pour saisir votre premier **makefile**, vous devez bien sûr utiliser votre éditeur de texte préféré (on ne parle pas ici d'un logiciel de traitement de texte "**wysiwyg**" du genre Libreoffice Writer).
 
-J'utilise pour ma part pour le moment le logiciel **Gedit**. Les habitués des systèmes basés sur Linux préféreront **Vim** ou **Emacs**. Gedit reconnait habituellement la plupart des syntaxes courantes en les colorant (coloration syntaxique), en particulier les syntaxes du langage C, C++ et bien sur la syntaxe spéciale de **make**.
+J'utilise pour ma part pour le moment le logiciel **Gedit**. Les habitués des systèmes basés sur Linux préféreront **Vim** ou **Emacs**. **Gedit** reconnait habituellement la plupart des syntaxes courantes en les colorant (coloration syntaxique), en particulier les syntaxes du langage **C,** **C++** et bien sur la syntaxe spéciale de **make**.
 
 Voici le contenu de notre premier **makefile** :
 
@@ -39,15 +39,15 @@ Voici le contenu de notre premier **makefile** :
 
 **all:** et "**clean:**" s'appellent des "cibles" (targets). On peut donner le nom que l'on souhaite aux cibles (comme "**toto:**") mais certaines conventions et habitudes existent ("**all:**" compile tout et "**clean**" nettoie).
 
-**Note :** pour décaler les instructions "**g++ etc**" et "**rm etc**", il faut les indenter avec une tabulation et pas des espaces. "**all:**" et "**clean:**" sont contre la marge (pas d'indentation).
+**Note :** pour décaler les instructions "**g++ etc**" et "**rm etc**", il faut les indenter avec une **tabulation** et pas des espaces. Les cibles "**all:**" et "**clean:**" sont contre la marge (pas d'indentation).
 
 ### Ordre d'exécution du makefile simplifié
 
-Sur le makefile précédent si vous entrez la commande demandant à make d'aller vers la cible "**all**",
+Sur le makefile précédent, si vous entrez la commande demandant à make d'aller vers la cible "**all**",
 
     make all
 
-vous allez compiler le fichier **ex1.cpp** avec l'utilitaire **g++**, avec l'option **Wall** pour produire un fichier exécutable nommé **ex1** :
+vous allez compiler le fichier **ex1.cpp** avec l'utilitaire **g++**, avec l'option **-Wall** (Warning all) pour produire un fichier exécutable nommé **ex1** :
 
     g++ -Wall ex1.cpp -o ex1
 
@@ -80,9 +80,9 @@ Ensuite, il faudra lancer **Gedit** avec le fichier ex1.cpp à l'intérieur ains
 
     gedit ex1.cpp Makefile
 
-**Note :** la présence du **Makefile** dans **Gedit** n'est pas obligatoire mais permettra de contrôler les fichiers à compiler, les options de compilation et le fichiers à nettoyer le cas échéant.
+**Note :** la présence du **Makefile** dans **Gedit** n'est pas obligatoire mais permettra de contrôler son contenu..
 
-Le code à saisir dans **ex1.cpp** est juste un exercice de vérification de la configuration, le code sera expliqué plus tard.
+Le code à saisir dans **ex1.cpp** permet d'afficher le message : **Salut le c++** dans la ligne de commande (application du type **"console"**) et est juste un exercice de vérification de la configuration. Le code sera expliqué en détail plus tard.
 
     #include <iostream>
 
@@ -103,7 +103,7 @@ ou tout simplement ( **all:** étant la première cible) :
 
 Il ne devrait pas y avoir de message d'avertissement du compilateur même si l'option "**Wall**" ("Warning all") est activée.
 
-Il suffit maintenant d'exécuter le fichier fraîchement produit **ex1** dans le dossier courant (**/.**) :
+Il suffit maintenant d'exécuter le fichier fraîchement produit **ex1** dans le dossier courant (**./**) :
 
     ./ex1
 
@@ -111,4 +111,4 @@ Si tout est ok le message suivant s'affiche dans la console :
 
     Salut le c++
 
-Hourra, vous avez compilé votre premier programme en **C++** !!
+Hourra, vous avez compilé votre premier programme en **C++** !! Si malheureusement, ce n'est pas le cas, il faudra revoir les différentes étapes de configuration.
