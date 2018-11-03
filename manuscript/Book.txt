@@ -1,3 +1,2 @@
-chap1.md
 chap1/compilateur.md
 chap1/make.md

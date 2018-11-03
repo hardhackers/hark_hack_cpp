@@ -1,8 +1,8 @@
-## Make
+# L'utilitaire d'automatisation de compilation make
 
 **Make** est un utilitaire assez ancien du projet Gnu dont la vocation est d'automatiser le processus de compilation. Il examine en particulier les fichiers déjà à jour au niveau de la compilation pour éviter une recompilation et donc permet un gain de performances substantiel lors de ce processus.
 
-### Paquet "make" dans Debian Stretch
+## Paquet "make" dans Debian Stretch
 
 En principe, cet utilitaire est tellement courant dans le processus d'automatisation de compilation sur les systèmes basés sur Linux qu'il devrait déjà être installé.
 
@@ -10,7 +10,7 @@ Si ce n'est pas le cas, il suffit de lancer la commande :
 
     sudo apt-get install make
 
-### Version de "make"
+## Version de "make"
 
 Comme habituellement, vous pouvez obtenir la version de make avec l'option --version
 
@@ -18,7 +18,7 @@ Comme habituellement, vous pouvez obtenir la version de make avec l'option --ver
 
 Me concernant, il s'agit de la version "**GNU Make 4.1**"
 
-### Premier makefile
+## Premier makefile
 
 Le "**makefile**" est un fichier de configuration lu par l'utilitaire **make**. Il suffit de placer le fichier dans un dossier et de lancer **make** avec certaines options.
 
@@ -39,7 +39,7 @@ Voici le contenu de notre premier **makefile** :
 
 **Note :** pour décaler les instructions "**g++ etc**" et "**rm etc**", il faut les indenter avec une tabulation et pas des espaces. "**all:**" et "**clean:**" sont contre la marge (pas d'indentation).
 
-### Ordre d'exécution du makefile simplifié
+## Ordre d'exécution du makefile simplifié
 
 Sur le makefile précédent si vous entrez la commande demandant à make d'aller vers la cible "**all**",
 
@@ -65,7 +65,7 @@ alors **make** lancera le contenu de la première cible ("**all:**" dans notre c
 
 Une fois le **makefile** saisi et enregistré, il faut maintenant saisir notre premier fichier d'exercice (le **ex1.cpp** qui figure dans le makefile)
 
-### Premier exercice pour vérification
+## Premier exercice pour vérification
 
 Votre système doit être maintenant fonctionnel et nous allons le vérifier par le premier exercice (**ex1.cpp**).
 
