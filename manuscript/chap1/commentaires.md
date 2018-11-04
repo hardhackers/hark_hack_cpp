@@ -4,7 +4,7 @@
 
 Il est important de documenter vos fichiers sources. Le fait de documenter un programme peut vous permettre de vous rappeler dans un futur lointain ce que font vos instructions de programmation. 
 
-Un fait non connu par les développeurs débutant est que certains types de commentaires permettent de créer des documentations de façon automatiquement générées. De cette façon vous générez la documentation des objets (librairies, classes, etc) que vous créez.
+Un fait non connu par les développeurs débutants est que certains types de commentaires permettent de créer des documentations de façon automatique grace à des générateurs automatiques. De cette façon vous générez la documentation des objets (librairies, classes, etc) que vous créez et vous autodocumentez votre projet.
 
 ### Les différents types de commentaires
 
@@ -27,9 +27,9 @@ Voici un programme simple dans lequel on a commenté certaines instructions qui 
     // C'est un commentaire d'une ligne
     /* C'est un commentaire de plusieurs lignes,
     par exemple la ligne 1,
-    la ligne 2 */
+    puis la ligne 2 */
     
-    //La ligne suivant a été mise en commentaire
+    //La ligne suivante a été mise en commentaire
     //#include <iostream>
 
     int main(){
@@ -40,9 +40,8 @@ Voici un programme simple dans lequel on a commenté certaines instructions qui 
 
 Le programme au dessus peut finalement être résumé au programme minimum en C++ suivant
 
-    int main()
-    {
-    return 0;
+    int main(){
+      return 0;
     }
 
 
