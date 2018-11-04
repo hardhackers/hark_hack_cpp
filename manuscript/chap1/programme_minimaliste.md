@@ -1,6 +1,6 @@
 ## Programme minimaliste
 
-Le programme au dessus peut finalement être résumé au programme minimum en C++ suivant
+Le programme suivant est le minimum que l'on puisse saisir :
 
     int main(){
       return 0;
