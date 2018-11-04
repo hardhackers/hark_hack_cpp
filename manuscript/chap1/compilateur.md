@@ -42,13 +42,13 @@ Tout d'abord, il est important de dire que la commande **g++** n'invoque pas dir
 
 Je vais donc expliquer comment j'ai fait pour obtenir le vrai fichier exécutable (je dispose de **Debian Stretch**  comme je l'ai déja dit).
 
-#### Installation du paquet g++ dans Debian
+### Installation du paquet g++ dans Debian
 
 C'est très simple, il suffit de taper la commande :
 
     sudo apt-get install g++
 
-#### Trouver l'endroit de l'exécutable réel
+### Trouver l'endroit de l'exécutable réel pour g++
 Pour  connaître le dossier d'origine de la commande **g++** que vous tapez, vous devez utiliser la commande **which**, voici le résultat :
 
     yannick@debian:/$ which g++
@@ -86,7 +86,7 @@ Les liens seront reconnaissables car alors terminés par le symbole "**@**" :
 
 
 
-#### Obtenir des informations précises sur l'exécutable
+### Obtenir des informations précises sur g++
 
 La commande **file** permet d'obtenir un peu plus d'informations sur ce fichier :
 
