@@ -1,2 +1,6 @@
+chap1/_chap1.md
 chap1/compilateur.md
 chap1/make.md
+chap1/commentaires.md
+chap1/programme_minimaliste.md
+

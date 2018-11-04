@@ -1,17 +1,17 @@
-# Le compilateur g++
+## Le compilateur g++
 
-## Sous Linux Debian Stretch
+### Sous Linux Debian Stretch
 
 Je dispose de **Stretch** qui est la dernière version de **Debian** et donc vous devrez adapter l'installation à votre système si ce n'est pas la distribution Linux que vous avez.
 
-### Noms connus pour invoquer le compilateur
+#### Noms connus pour invoquer le compilateur
 
 Parmi les noms connus pour faire "de la compilation", on trouve :
 **c++**, **cpp**, **g++**, **gcc**, **gcc-x**, **c++**, **cpp-x** (x est le numéro de version du fichier). 
 
 Comme on s'y perd un peu parmi ces noms, il faut comprendre que **g++** est le "**front end**", ce qui veut dire qu'il s'occupe de lancer dans cet ordre toute la chaîne de compilation. Il remplace **gcc** qui est prévu à l'origine pour le langage **C**, bien que **gcc** puisse compiler du code source c++ avec certaines options. Comme son nom l'indique, *Gcc* veut dire : " **Gnu Compileur collection** ". Il s'agit d'une collection d'outils **Gnu** pour compiler des codes sources dans différents langages (dont C et C++). 
 
-### Les éléments de la chaîne de compilation
+#### Les éléments de la chaîne de compilation
 
 Le programme **g++** gère la chaîne de compilation. Les programmes sont les suivants et fonctionnent dans cet ordre :
 - le préprocesseur **cpp** s'occupe d'intégrer des morceaux de code (inclusion) disponibles dans d'autres fichiers (comme les fichiers d'entête ou "headers"). Il s'occupe aussi d'intégrer d'autres éléments (macro) et permet la compilation conditionnelle (on compile d'une façon ou d'une autre selon les directives, par exemple selon le système d'exploitation).
@@ -20,13 +20,13 @@ Le programme **g++** gère la chaîne de compilation. Les programmes sont les su
 - l'éditeur de lien **ld** rassemble les fichiers" objets et lib pour produire un exécutable (par exemple au format "**elf**").
 Dorénavant, je vais appeler "**compilateur**" le programme **g++** chargé de l'ensemble de la compilation.
 
-### Obtenir la version du compilateur
+#### Obtenir la version du compilateur
 
 Il est très important d'obtenir la version car les prises en charge du langage (C++11, C++14, etc.) ne sont pas les mêmes selon la version du compilateur.
 
 ​    g++ --version
 
-### Obtenir les options de compilation
+#### Obtenir les options de compilation
 
 Les premières options de compilations peuvent être obtenue avec la commande :
 
@@ -36,19 +36,19 @@ Bien sûr on peut afficher la page de manuel et de nombreuses informations avec 
 
     man g++
 
-### Où se trouve le compilateur ?
+#### Où se trouve le compilateur ?
 
 Tout d'abord, il est important de dire que la commande **g++** n'invoque pas directement le compilateur. Il s'agit souvent d'un lien symbolique qui mène vers le vrai fichier exécutable (par exemple **x86_64-linux-gnu-g++-6**).
 
 Je vais donc expliquer comment j'ai fait pour obtenir le vrai fichier exécutable (je dispose de **Debian Stretch**  comme je l'ai déja dit).
 
-### Installation du paquet g++ dans Debian
+#### Installation du paquet g++ dans Debian
 
 C'est très simple, il suffit de taper la commande :
 
     sudo apt-get install g++
 
-### Trouver l'endroit de l'exécutable réel pour g++
+#### Trouver l'endroit de l'exécutable réel pour g++
 Pour  connaître le dossier d'origine de la commande **g++** que vous tapez, vous devez utiliser la commande **which**, voici le résultat :
 
     yannick@debian:/$ which g++
@@ -86,15 +86,10 @@ Les liens seront reconnaissables car alors terminés par le symbole "**@**" :
 
 
 
-### Obtenir des informations précises sur g++
+#### Obtenir des informations précises sur g++
 
 La commande **file** permet d'obtenir un peu plus d'informations sur ce fichier :
 
     yannick@debian:/usr/bin$ file x86_64-linux-gnu-g++-6
     x86_64-linux-gnu-g++-6: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=8c9108996de1408c7aa0a2c42a5f4cc6492a0dd8, stripped
-
-
-
-
-
 
