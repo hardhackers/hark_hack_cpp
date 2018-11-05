@@ -16,12 +16,14 @@ Testons tout d'abord ce programme :
       return 0;
     }
 
-Comme on peut le constater ce programme fonctionne et affiche la ligne de texte mais curieusement, il n'y pas de saut de ligne avant la ligne de commande qui commence par "yannick" (mon identifiant) :
+Voici ce que l'on obtient :
 
     yannick@debian:~/Documents/cpp$ make
     g++ -Wall ex.cpp -o ex
     ./ex
-    Salut le c++yannick@debian:~/Documents/cpp$ 
+    Salut le c++yannick@debian:~/Documents/cpp$
+
+Comme on peut le constater ce programme fonctionne et affiche la ligne de texte mais curieusement, il n'y pas de saut de ligne avant la ligne de commande qui commence par "yannick" (mon identifiant) : 
 
 ### Les sauts de ligne
 
@@ -84,7 +86,7 @@ On doit noter qu'il ne faut pas faire d'espace avant le "**u**" de "une autre li
 
 #### La valeur de retour
 
-La fonction **main** retourne un entier au système, c'est entier est normalement "**0**" si tout s'est bien passé. Comme la valeur retournée est un entier, on écrit **int main** (**int** correspondant à un **integer** soit un entier).
+La fonction **main** retourne un entier au système, cet entier est normalement "**0**" si tout s'est bien passé. Comme la valeur retournée est un entier, on écrit **int main** (**int** correspondant à un **integer** soit un entier).
 
 Nous allons créer un programme qui au lieu de dire que tout s'est bien passé va nous retourner une erreur. Nous allons donc changer le "**return 0**" en "**return 1**" pour voir ce qui se passe :
 
@@ -119,7 +121,7 @@ Nous obtenons le message d'erreur suivant :
 
 Comme on peut le voir, le compilateur n'est pas content et attend un type "**int**" pour la fonction "**main**" !
 
-La méthode qui consiste à créer des erreurs volontaire est une très bonne méthode pour apprendre les erreurs du compilateur qui et je le regrette, n'est toujours pas francisé.
+La méthode qui consiste à créer des erreurs volontaires est une très bonne méthode pour apprendre les "Warnings" du compilateur qui et je le regrette, n'est toujours pas francisé.
 
 ### Les accolades
 
@@ -144,18 +146,18 @@ Comme on peut le voir, ce programme ne génère pas d'erreur.
 
 ### Le "std::cout" et les espaces de nom
 
-Tout d'abord, l'instruction "**cout**" est le nom d'une fonction qui permet de faire sortir un texte sur la sortie standard (l'écran de la console). Ensuite le "std::" nous indique que cette fonction est présente dans l'espace de nom ou **namespace** nommé "**std**. Les espaces de noms permettent d'utiliser les mêmes noms de fonction mais pour des utilisatios différentes. Pour éviter les erreurs on regroupe certaines fonctions présentes des espaces de nom.
+Tout d'abord, l'instruction "**cout**" est le nom d'une fonction qui permet de faire sortir un texte sur la sortie standard (l'écran de la console). Ensuite le "**std::**" nous indique que cette fonction est présente dans l'espace de nom ou **namespace** nommé "**std**. Les espaces de noms permettent d'utiliser les mêmes noms de fonction mais pour des utilisations différentes. Pour éviter les erreurs, on regroupe certaines fonctions présentes des espaces de nom.
 
-L'espace de nom nommé "**std**" correspond comme son nom l'indique à l'espace de nom des fonctions standard ("std") du C++.
+L'espace de nom nommé "**std**" correspond comme son nom l'indique à l'espace de nom des fonctions standard ("**std**") du C++.
 
-"**std::cout**" veut donc dire : la fonction "**cout**" qui se trouve dans une dans le namespace "**std**".
+"**std::cout**" veut donc dire : la fonction "**cout**" qui se trouve dans le namespace "**std**".
 
 Pour illustrer ce que je viens de dire, il suffit d'ouvrir le fichier d'entête ou header **iostream**. Sous mon système **Debian strech**, le fichier se trouve dans "**/usr/include/c++/6/**". On voit dans ce fichier la déclaration du namespace :
 
     namespace std _GLIBCXX_VISIBILITY(default)
     {
 
-et à la fin la fermeture :
+et à la fin, la fermeture :
 
     } // namespace
 
@@ -173,7 +175,7 @@ Il nous propose quand même la solution :
 
 Il nous fait la même chose pour la fonction "**endl**".
 
-Si on veut éviter ces erreurs, on peut déclarer le namespace avant avec l'instruction : "**using namespace std;**"" ce qui veut dire "nous allons utiliser le namespace std pour certaines fonctions utilisées ici".
+Si on veut éviter ces erreurs, on peut déclarer le namespace avant avec l'instruction : "**using namespace std;**"" ce qui veut dire "nous allons utiliser le namespace **std** pour certaines fonctions utilisées ici".
 
 Voyons ce que ça donne dans un nouveau programme :
 
@@ -193,11 +195,12 @@ Il n'y a plus d'erreur maintenant.
 
 ### Le #include <iostream>
 
-Comme on l'a vu avant iostream correspond à un fichier présent sur le système. L'instruction commence par le symbole "**#**" qui nous montre que l'instruction va être traitée par le préprocesseur **cpp** et qu'il faut inclure cette bibliothèque lors de l'édition de lien. Le fait qu'il ait "**< iostream >**" et pas "**"iostream.h"** montre qu'il s'agit d'une bibliothèque standard livrée par défaut avec le compilateur. Quant à nous, il nous faudra bien mettre le nom du fichier d'entête sous la forme "**mon_fichier_entete.h**".
+Comme on l'a vu avant iostream correspond à un fichier présent sur le système. L'instruction commence par le symbole "**#**" qui nous montre que l'instruction va être traitée par le préprocesseur **cpp** et qu'il faut inclure cette bibliothèque lors de l'édition de lien. Le fait qu'il ait "**< iostream >**" et pas "**"iostream.h"** montre qu'il s'agit d'une bibliothèque standard livrée par défaut avec le compilateur. Quant à nous, il nous faudra bien mettre le nom du fichier des fichiers d'entête que nous créons sous la forme "**mon_fichier_entete.h**" car ils ne font pas partie de la bibliothèque standard.
 
-Il est maintenant intéressant de faire une erreur dans le nom du fichier dans tête pour faire en sorte que le compilateur se plaigne :
+Il est maintenant intéressant de faire une erreur dans le nom du fichier d'entête (header) pour faire en sorte que le compilateur se plaigne :
 
-   // On fait une erreur volontaire ici en enlevant le "a"
+    // On fait une erreur volontaire ici en enlevant le "a"
+
     #include <iostrem>
 
     using namespace std;
