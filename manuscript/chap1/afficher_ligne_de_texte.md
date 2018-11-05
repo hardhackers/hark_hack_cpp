@@ -2,9 +2,9 @@
 
 ### Test du programme
 
-Le programme suivant permet d'afficher une ligne de texte dans la console. La sortie d'un texte sur la console s'appelle aussi **"sortie standard"** et porte le numéro "**2**".
+Le programme suivant permet d'afficher une ligne de texte dans la console. La sortie d'un texte sur la console s'appelle aussi **"sortie standard"** et porte le numéro "**1**".
 
-**Note :** l'entrée d'un texte dans la console, quand par exemple un programme nous demande un nombre, s'appelle "**l'entrée standard**" et porte le numéro "**1**". Enfin, quand on veut sortir un message **d'erreur**, le numéro est le "**0**"
+**Note :** l'entrée d'un texte dans la console, quand par exemple un programme nous demande un nombre, s'appelle "**l'entrée standard**" et porte le numéro "**0**". Enfin, quand on veut sortir un message **d'erreur**, le numéro est le "**2**"
 
 Testons tout d'abord ce programme :
 
@@ -67,7 +67,7 @@ Voici le résultat :
 
 Il existe une autre façon de faire des sauts de ligne avec le caractère d'échappement "**\n**" (n voulant dire "new line").
 
-**Note :** le caractère d'échappement "**\n**"  hérite du langage C et l'utilisation de "**endl**" est préconisée en C++. Il y a certaines nuances dans l'utilisation de l'un ou de l'autre mais je préciserai cela plus tard.
+**Note :** le caractère d'échappement "**\n**"  hérite du langage C et l'utilisation de "**endl**" est préconisée en C++. Il y a certaines nuances dans l'utilisation de l'une ou l'autre de ces instructions mais je préciserai cela plus tard.
 
 Voici un programme utilisant les deux :
 
@@ -86,7 +86,7 @@ On doit noter qu'il ne faut pas faire d'espace avant le "**u**" de "une autre li
 
 #### La valeur de retour
 
-La fonction **main** retourne un entier au système, cet entier est normalement "**0**" si tout s'est bien passé. Comme la valeur retournée est un entier, on écrit **int main** (**int** correspondant à un **integer** soit un entier).
+La fonction **main** retourne un entier au système, cet entier est normalement "**0**" si tout s'est bien passé. Comme la valeur retournée est un entier, on écrit "**int main {**" (**int** correspondant à un **integer** soit un entier).
 
 Nous allons créer un programme qui au lieu de dire que tout s'est bien passé va nous retourner une erreur. Nous allons donc changer le "**return 0**" en "**return 1**" pour voir ce qui se passe :
 
@@ -123,7 +123,7 @@ Comme on peut le voir, le compilateur n'est pas content et attend un type "**int
 
 La méthode qui consiste à créer des erreurs volontaires est une très bonne méthode pour apprendre les "Warnings" du compilateur qui et je le regrette, n'est toujours pas francisé.
 
-### Les accolades
+### Les accolades et les blocs
 
 Dans une fonction, les accolades permettent d'encadrer un bloc de programme. Elles sont toujours par paires.
 
@@ -146,19 +146,21 @@ Comme on peut le voir, ce programme ne génère pas d'erreur.
 
 ### Le "std::cout" et les espaces de nom
 
-Tout d'abord, l'instruction "**cout**" est le nom d'une fonction qui permet de faire sortir un texte sur la sortie standard (l'écran de la console). Ensuite le "**std::**" nous indique que cette fonction est présente dans l'espace de nom ou **namespace** nommé "**std**. Les espaces de noms permettent d'utiliser les mêmes noms de fonction mais pour des utilisations différentes. Pour éviter les erreurs, on regroupe certaines fonctions présentes des espaces de nom.
+Tout d'abord, "**cout**" est le nom d'un "**flux**" qui permet de faire sortir des caractères sur la sortie standard (l'écran de la console). Ensuite le "**std::**" nous indique que le nom de ce flux est présent dans l'espace de nom ou **namespace** nommé "**std**". Les espaces de noms permettent d'utiliser les mêmes noms (comme le nom de flux "**cout**") mais pour des utilisations différentes. Pour éviter les erreurs, on regroupe les objets dans des espaces de nom.
 
-L'espace de nom nommé "**std**" correspond comme son nom l'indique à l'espace de nom des fonctions standard ("**std**") du C++.
+L'espace de nom nommé "**std**" correspond, comme son nom l'indique, à l'espace de nom des fonctions standard ("**std**") du C++.
 
-"**std::cout**" veut donc dire : la fonction "**cout**" qui se trouve dans le namespace "**std**".
+"**std::cout**" veut donc dire : le flux "**cout**" qui se trouve dans le namespace "**std**".
 
 Pour illustrer ce que je viens de dire, il suffit d'ouvrir le fichier d'entête ou header **iostream**. Sous mon système **Debian strech**, le fichier se trouve dans "**/usr/include/c++/6/**". On voit dans ce fichier la déclaration du namespace :
 
     namespace std _GLIBCXX_VISIBILITY(default)
     {
+      ...
 
 et à la fin, la fermeture :
 
+      ...
     } // namespace
 
 On peut essayer d'enlever le "**std::**" pour voir ce que ça fait. Voici une partie de l'erreur générée pour moi :
@@ -175,7 +177,7 @@ Il nous propose quand même la solution :
 
 Il nous fait la même chose pour la fonction "**endl**".
 
-Si on veut éviter ces erreurs, on peut déclarer le namespace avant avec l'instruction : "**using namespace std;**"" ce qui veut dire "nous allons utiliser le namespace **std** pour certaines fonctions utilisées ici".
+Si on veut éviter ces erreurs, on peut déclarer le namespace avant avec l'instruction : "**using namespace std;**" ce qui veut dire "nous allons utiliser le namespace **std** pour certaines fonctions utilisées ici".
 
 Voyons ce que ça donne dans un nouveau programme :
 
@@ -195,7 +197,7 @@ Il n'y a plus d'erreur maintenant.
 
 ### Le #include <iostream>
 
-Comme on l'a vu avant iostream correspond à un fichier présent sur le système. L'instruction commence par le symbole "**#**" qui nous montre que l'instruction va être traitée par le préprocesseur **cpp** et qu'il faut inclure cette bibliothèque lors de l'édition de lien. Le fait qu'il ait "**< iostream >**" et pas "**"iostream.h"** montre qu'il s'agit d'une bibliothèque standard livrée par défaut avec le compilateur. Quant à nous, il nous faudra bien mettre le nom du fichier des fichiers d'entête que nous créons sous la forme "**mon_fichier_entete.h**" car ils ne font pas partie de la bibliothèque standard.
+Comme on l'a vu avant iostream correspond à un fichier présent sur le système. L'instruction commence par le symbole "**#**" qui nous montre que l'instruction va être traitée par le préprocesseur **cpp** et qu'il faut inclure cette bibliothèque lors de l'édition de lien. Le fait qu'il ait "**< iostream >**" et pas "**"iostream.h"** montre qu'il s'agit d'une bibliothèque C++ standard livrée par défaut avec le compilateur. Quant à nous, il nous faudra bien mettre le nom des fichiers d'entête que nous créons sous la forme "**mon_fichier_entete.h**" car ils ne font pas partie de la bibliothèque standard.
 
 Il est maintenant intéressant de faire une erreur dans le nom du fichier d'entête (header) pour faire en sorte que le compilateur se plaigne :
 
