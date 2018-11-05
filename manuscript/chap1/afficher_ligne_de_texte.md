@@ -146,7 +146,7 @@ Comme on peut le voir, ce programme ne génère pas d'erreur.
 
 ### Le "std::cout" et les espaces de nom
 
-Tout d'abord, "**cout**" est le nom d'un "**flux**" qui permet de faire sortir des caractères sur la sortie standard (l'écran de la console). Ensuite le "**std::**" nous indique que le nom de ce flux est présent dans l'espace de nom ou **namespace** nommé "**std**". Les espaces de noms permettent d'utiliser les mêmes noms (comme le nom de flux "**cout**") mais pour des utilisations différentes. Pour éviter les erreurs, on regroupe les objets dans des espaces de nom.
+Tout d'abord, "**cout**" est le nom d'un "**flux**" qui permet de faire sortir des caractères sur la sortie standard (l'écran de la console). C'est la contraction de "**Console out**". Ensuite le "**std::**" nous indique que le nom de ce flux est présent dans l'espace de nom ou **namespace** nommé "**std**". Les espaces de noms permettent d'utiliser les mêmes noms (comme le nom de flux "**cout**") mais pour des utilisations différentes. Pour éviter les erreurs, on regroupe les objets dans des espaces de nom.
 
 L'espace de nom nommé "**std**" correspond, comme son nom l'indique, à l'espace de nom des fonctions standard ("**std**") du C++.
 
@@ -197,7 +197,7 @@ Il n'y a plus d'erreur maintenant.
 
 ### Le #include <iostream>
 
-Comme on l'a vu avant iostream correspond à un fichier présent sur le système. L'instruction commence par le symbole "**#**" qui nous montre que l'instruction va être traitée par le préprocesseur **cpp** et qu'il faut inclure cette bibliothèque lors de l'édition de lien. Le fait qu'il ait "**< iostream >**" et pas "**"iostream.h"** montre qu'il s'agit d'une bibliothèque C++ standard livrée par défaut avec le compilateur. Quant à nous, il nous faudra bien mettre le nom des fichiers d'entête que nous créons sous la forme "**mon_fichier_entete.h**" car ils ne font pas partie de la bibliothèque standard.
+Comme on l'a vu avant iostream ("flux d'entrée/sortie") correspond à un fichier présent sur le système. L'instruction commence par le symbole "**#**" qui nous montre que l'instruction va être traitée par le préprocesseur **cpp** et qu'il faut inclure cette bibliothèque. On appelle l'instruction **# include <...>** une **directive d'inclusion**. Le fait qu'il ait "**< iostream >**" et pas "**"iostream.h"** montre qu'il s'agit d'une bibliothèque C++ standard livrée par défaut avec le compilateur. Quant à nous, il nous faudra bien mettre le nom des fichiers d'entête que nous créons sous la forme "**mon_fichier_entete.h**" car ils ne font pas partie de la bibliothèque standard.
 
 Il est maintenant intéressant de faire une erreur dans le nom du fichier d'entête (header) pour faire en sorte que le compilateur se plaigne :
 

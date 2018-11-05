@@ -33,9 +33,9 @@ J'utilise pour ma part pour le moment le logiciel **Gedit**. Les habitués des s
 Voici le contenu de notre premier **makefile** :
 
     all:
-        g++ -Wall ex1.cpp -o ex1
+        g++ -Wall ex.cpp -o ex
     clean:
-        rm -f ex1
+        rm -f ex
 
 **all:** et "**clean:**" s'appellent des "cibles" (targets). On peut donner le nom que l'on souhaite aux cibles (comme "**toto:**") mais certaines conventions et habitudes existent ("**all:**" compile tout et "**clean**" nettoie).
 
@@ -47,17 +47,17 @@ Sur le makefile précédent, si vous entrez la commande demandant à make d'alle
 
     make all
 
-vous allez compiler le fichier **ex1.cpp** avec l'utilitaire **g++**, avec l'option **-Wall** (Warning all) pour produire un fichier exécutable nommé **ex1** :
+vous allez compiler le fichier **ex1.cpp** avec l'utilitaire **g++**, avec l'option **-Wall** (Warning all) pour produire un fichier exécutable nommé **ex** :
 
-    g++ -Wall ex1.cpp -o ex1
+    g++ -Wall ex.cpp -o ex
 
 Si vous entrez la commande demandant à **make** d'aller sur la cible "**clean**",
 
     make clean
 
-vous allez exécuter la commande de suppression du fichier ex1 à l'aide de l'utilitaire **rm**, avec l'option **-f** :
+vous allez exécuter la commande de suppression du fichier ex à l'aide de l'utilitaire **rm**, avec l'option **-f** :
 
-    rm -f ex1
+    rm -f ex
 
 Si vous ne spécifiez pas de cible avec simplement la commande,
 
@@ -65,7 +65,7 @@ Si vous ne spécifiez pas de cible avec simplement la commande,
 
 alors **make** lancera le contenu de la première cible ("**all:**" dans notre cas).
 
-Une fois le **makefile** saisi et enregistré, il faut maintenant saisir notre premier fichier d'exercice (le **ex1.cpp** qui figure dans le makefile)
+Une fois le **makefile** saisi et enregistré, il faut maintenant saisir notre premier fichier d'exercice (le **ex.cpp** qui figure dans le makefile)
 
 #### Premier exercice pour vérification
 
@@ -93,7 +93,13 @@ Le code à saisir dans **ex1.cpp** permet d'afficher le message : **Salut le c++
 
 Une fois le fichier **ex1.cpp** enregistré, vous pouvez quitter **Gedit** avec le raccourci "**CTRL-q**" pour revenir à la ligne de commande.
 
-Pour compiler **ex1.cpp**, il suffit maintenant de lancer la commande :
+Pour plus de faciliter et pour éviter de modifier le makefile à chaque exercice, nous allons copier *ex1.cpp* dans *ex.cpp**.
+
+    cp ex1.cpp ex.cpp
+
+Vous pourrez pour les différentes exercices les nommer comme vous le souhaitez à conditions que vous fassiez toujours une copie dans **ex.cpp*.
+
+Pour compiler **ex.cpp**, il suffit maintenant de lancer la commande :
 
     make all
 
@@ -105,7 +111,17 @@ Il ne devrait pas y avoir de message d'avertissement du compilateur même si l'o
 
 Il suffit maintenant d'exécuter le fichier fraîchement produit **ex1** dans le dossier courant (**./**) :
 
-    ./ex1
+    ./ex
+
+La bonne nouvelle, c'est que vous pouvez saisir cette instruction dans votre makefile pour ne pas lancer votre programme à chaque fois. Attention à bien mettre une **tabulation** devant le **./ex** et pas des espaces. Votre makefile sera donc le suivant :
+
+    all:
+        g++ -Wall ex.cpp -o ex
+        ./ex
+    clean:
+        rm -f ex
+
+
 
 Si tout est ok le message suivant s'affiche dans la console :
 
