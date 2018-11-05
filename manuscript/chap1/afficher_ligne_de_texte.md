@@ -1,8 +1,10 @@
 ## Afficher une ligne de texte
+
 ### Test du programme
+
 Le programme suivant permet d'afficher une ligne de texte dans la console. La sortie d'un texte sur la console s'appelle aussi **"sortie standard"** et porte le numéro "**2**".
 
-**Note :** l'entrée d'un texte dans la console, quand par exemple un programme nous demande un nombre, s'appelle "**l'entrée standard*" et porte le numéro "**1**". Enfin, quand on veut sortir un message **d'erreur**, le numéro est le "**0**"
+**Note :** l'entrée d'un texte dans la console, quand par exemple un programme nous demande un nombre, s'appelle "**l'entrée standard**" et porte le numéro "**1**". Enfin, quand on veut sortir un message **d'erreur**, le numéro est le "**0**"
 
 Testons tout d'abord ce programme :
 
@@ -14,7 +16,7 @@ Testons tout d'abord ce programme :
       return 0;
     }
 
-Comme on peut le constater ce programme fonctionne et affiche la ligne de texte mais curieusement, il n'y pas de saut de ligne avant la ligne de commande :
+Comme on peut le constater ce programme fonctionne et affiche la ligne de texte mais curieusement, il n'y pas de saut de ligne avant la ligne de commande qui commence par "yannick" (mon identifiant) :
 
     yannick@debian:~/Documents/cpp$ make
     g++ -Wall ex.cpp -o ex
@@ -23,9 +25,9 @@ Comme on peut le constater ce programme fonctionne et affiche la ligne de texte 
 
 ### Les sauts de ligne
 
-Pour que la ligne de commande passe à la ligne, il y a une instruction spéciale en C++ qui s'appelle "End Of Line" (Endl).
+Pour que la ligne de commande passe à la ligne, il y a une instruction spéciale en C++ qui s'appelle "End of line" écrite "**Endl**").
 
-Modifions donc notre programme :
+Modifions donc notre programme pour qui ajoute un saut de ligne dans la sortie standard :
 
     #include <iostream>
 
@@ -35,7 +37,7 @@ Modifions donc notre programme :
       return 0;
     }
 
-Comme on peut le voir, on a créé un saut de ligne après le plus :
+Comme on peut le voir, on a créé un saut de ligne après le "+" et avant "yannick" :
 
     yannick@debian:~/Documents/cpp$ make
     g++ -Wall ex.cpp -o ex
@@ -56,14 +58,14 @@ On peut essayer le programme suivant pour afficher plusieurs lignes de texte les
 
 Voici le résultat :
 
-  Salut le c++
-  Une autre ligne
-  Une troisième ligne
-  Une quatrième
+    Salut le c++
+    Une autre ligne
+    Une troisième ligne
+    Une quatrième
 
 Il existe une autre façon de faire des sauts de ligne avec le caractère d'échappement "**\n**" (n voulant dire "new line").
 
-**Note :** le caractère d'échappement "**\n**"  hérite du langage C et l'utilisation de "**endl**" est préconisée en C++.
+**Note :** le caractère d'échappement "**\n**"  hérite du langage C et l'utilisation de "**endl**" est préconisée en C++. Il y a certaines nuances dans l'utilisation de l'un ou de l'autre mais je préciserai cela plus tard.
 
 Voici un programme utilisant les deux :
 
@@ -71,17 +73,18 @@ Voici un programme utilisant les deux :
 
     int main ()
     {
-      std::cout << "Salut le c++\n une autre ligne\n" << "Une troisième ligne" << std::endl << "Une quatrième" << std::endl;
+      std::cout << "Salut le c++\nune autre ligne\n" << 
+      "Une troisième ligne" << std::endl << "Une quatrième" << std::endl;
       return 0;
     }
 
-On doit noter qu'il ne faut pas faire d'espace avant le "u" de "une autre ligne".
+On doit noter qu'il ne faut pas faire d'espace avant le "**u**" de "une autre ligne".
 
 ### La fonction main
 
 #### La valeur de retour
 
-La fonction **main** retourne un entier au système, c'est entier est normalement "**0**" si tout s'est bien passé. Comme la valeur retournée est un entier, on écrit **int main** (**int** correspondant à **integer** (entier).
+La fonction **main** retourne un entier au système, c'est entier est normalement "**0**" si tout s'est bien passé. Comme la valeur retournée est un entier, on écrit **int main** (**int** correspondant à un **integer** soit un entier).
 
 Nous allons créer un programme qui au lieu de dire que tout s'est bien passé va nous retourner une erreur. Nous allons donc changer le "**return 0**" en "**return 1**" pour voir ce qui se passe :
 
@@ -116,20 +119,20 @@ Nous obtenons le message d'erreur suivant :
 
 Comme on peut le voir, le compilateur n'est pas content et attend un type "**int**" pour la fonction "**main**" !
 
-La méthode qui consiste à créer des erreurs exprès est une très bonne méthode d'apprentissage.
+La méthode qui consiste à créer des erreurs volontaire est une très bonne méthode pour apprendre les erreurs du compilateur qui et je le regrette, n'est toujours pas francisé.
 
 ### Les accolades
 
 Dans une fonction, les accolades permettent d'encadrer un bloc de programme. Elles sont toujours par paires.
 
-On peut en rajouter comme ici si on souhaite pour créer des blocs de programmes à l'intérieurs d'autres blocs (imbriqués) pour regrouper des instructions de programmation à l'intérieur d'un bloc, il est d'usage de faire un décalage de ligne (2 espaces par ex.) que l'on appelle "*indentation*".
+On peut en rajouter pour créer des blocs de programmes à l'intérieurs d'autres blocs (imbriqués). Ceci permet de regrouper des instructions de programmation à l'intérieur d'un bloc et il est d'usage de faire un décalage des lignes (2 espaces par ex. pour moi) que l'on appelle "**indentation**".
 
     #include <iostream>
 
     int main ()
     {
       std::cout << "Salut le c++" << std::endl;
-      //Un bloc à l'intérieur de main
+      //Un bloc à l'intérieur de main avec une indentation de 2 espaces
       {
         std::cout << "le nouveau bloc imbriqué" << std::endl;
         std::cout << "toujours le nouveau bloc" << std::endl;
@@ -141,13 +144,13 @@ Comme on peut le voir, ce programme ne génère pas d'erreur.
 
 ### Le "std::cout" et les espaces de nom
 
-Tout d'abord, l'instruction "**cout**" est le nom d'une fonction qui permet de faire sortir un texte sur la sortie standard (l'écran de la console). Ensuite le "std::" nous indique que cette fonction est présente dans l'espace de nom (namespace) nommé "**std**). Les espaces de noms permettent d'utiliser les mêmes noms de fonction mais pour des utilisatios différentes. Pour éviter les erreurs on regroupe certaines fonctions présentes des espaces de nom.
+Tout d'abord, l'instruction "**cout**" est le nom d'une fonction qui permet de faire sortir un texte sur la sortie standard (l'écran de la console). Ensuite le "std::" nous indique que cette fonction est présente dans l'espace de nom ou **namespace** nommé "**std**. Les espaces de noms permettent d'utiliser les mêmes noms de fonction mais pour des utilisatios différentes. Pour éviter les erreurs on regroupe certaines fonctions présentes des espaces de nom.
 
-L'espace de nom nommé "**std**" correspond comme son nom l'indique à l'espace de nom des fonctions standard ("std") du c++.
+L'espace de nom nommé "**std**" correspond comme son nom l'indique à l'espace de nom des fonctions standard ("std") du C++.
 
 "**std::cout**" veut donc dire : la fonction "**cout**" qui se trouve dans une dans le namespace "**std**".
 
-Pour illustrer ce que je viens de dire, il suffit d'ouvrir le fichier iostream. Sous mon système debian strech, le fichier se trouve dans "**/usr/include/c++/6/**". On voit dans ce fichier la déclaration du namespace :
+Pour illustrer ce que je viens de dire, il suffit d'ouvrir le fichier d'entête ou header **iostream**. Sous mon système **Debian strech**, le fichier se trouve dans "**/usr/include/c++/6/**". On voit dans ce fichier la déclaration du namespace :
 
     namespace std _GLIBCXX_VISIBILITY(default)
     {
@@ -207,8 +210,7 @@ Il est maintenant intéressant de faire une erreur dans le nom du fichier dans t
 
 On obtient l'erreur logique suivante vu que ce nom de fichier ne mêne à rien :
 
-  ex.cpp:2:23: fatal error: iostrem: Aucun fichier ou dossier de ce type
+    ex.cpp:2:23: fatal error: iostrem: Aucun fichier ou dossier de ce type
 
-Voilà, nous avons enfin terminé l'analyse de ce petit morceau de code mais pourtant riche d'enseignement.
-
+Voilà, nous avons enfin terminé l'analyse de ce petit morceau de code mais pourtant riche d'enseignement !
 
