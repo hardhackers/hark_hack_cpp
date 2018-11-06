@@ -33,11 +33,11 @@ Le programme suivant permet d'afficher des lignes de texte dans la console avec 
 * Exemple 1 : on voit que la tabulation s'est bien insérée entre les ":".
 * Exemple 2 : après le "r" de "return", le curseur de la console retourne sur le "C" de "Carriage". Ensuite ":" efface le "C" et ":" à nouveau efface le "a" ! Amusant, non ?
 * Exemple 3 : le caractère "alert" est sensé faire un bip mais ceci ne fonctionne pas vraiment pas partout !
-* Exemple 4 : Si on veut afficher un "\" étant donné que c'est le caractère utilisé dans les séquences d'échappement, on est obligé de le doubler pour qu'il apparaisse comme un simple caractère.
+* Exemple 4 : Si on veut afficher un "\\" étant donné que c'est le caractère utilisé dans les séquences d'échappement, on est obligé de le doubler pour qu'il apparaisse comme un simple caractère.
 * Exemple 5 : affichage de apostrophe qui est normalement réservé pour encadrer un caractère en C/C++.
 * Exemple 6 : affichage de guillemet qui est réservé pour encadrer un chaîne de caractères.
 * Exemple 7 : insertion du passage à la ligne, "n" voulant dire "new line".
-* Exemple 8 : affichage d'un slash, pas besoin d'une séquence d'échappement
+* Exemple 8 : affichage d'un slash, pas besoin d'une séquence d'échappement.
 * Exemple 9 : affichage d'un slash précédé de deux point d'interrogation. Si on oublie le "\" devant le deuxième ?, on déclenche un avertissement de compilation : "**warning: trigraph ??/ ignored, use -trigraphs to enable [-Wtrigraphs]**". En effet, la chaîne "??/" se nomme un trigraphe.
 
 ### Résumé des séquences d'échappement (tableau)
