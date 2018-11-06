@@ -50,7 +50,7 @@ On peut donc résumer les séquences d'échappement courantes dans le tableau ci
 |  \n    |Passage à la ligne (n = new line)          |
 |  \t    |Tabulation (t = tabulation)                |
 |  \a    |Beep (a = alert)                           |
-|  \\    |Antislash (backslash)                      |
+|  \\\\  |Antislash (backslash)                      |
 |  \"    |Guillemet (Double quote)                   |
 |  \'    |Apostrophe (Single quote)                  |
 |  \r    |Retour chariot (r = return)                |
