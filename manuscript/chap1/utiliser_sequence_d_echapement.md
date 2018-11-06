@@ -38,7 +38,7 @@ Le programme suivant permet d'afficher des lignes de texte dans la console avec 
 * Exemple 6 : affichage de guillemet qui est réservé pour encadrer un chaîne de caractères.
 * Exemple 7 : insertion du passage à la ligne, "n" voulant dire "new line".
 * Exemple 8 : affichage d'un slash, pas besoin d'une séquence d'échappement
-* Exemple 9 : affichage d'un slash précédé de deux point d'interrogation. Si on oublie le "\" devant le deuxième ?, on déclenche un avertissement de compilation : "warning: trigraph ??/ ignored, use -trigraphs to enable [-Wtrigraphs]". En effet, la chaîne "??/" se nomme un trigraphe.
+* Exemple 9 : affichage d'un slash précédé de deux point d'interrogation. Si on oublie le "\" devant le deuxième ?, on déclenche un avertissement de compilation : "**warning: trigraph ??/ ignored, use -trigraphs to enable [-Wtrigraphs]**". En effet, la chaîne "??/" se nomme un trigraphe.
 
 ### Résumé des séquences d'échappement (tableau)
 
