@@ -4,4 +4,5 @@ chap1/make.md
 chap1/commentaires.md
 chap1/programme_minimaliste.md
 chap1/afficher_ligne_de_texte.md
+chap1/utiliser_sequence_d_echapement.md
 
