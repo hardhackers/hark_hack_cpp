@@ -51,10 +51,10 @@ On peut donc résumer les séquences d'échappement courantes dans le tableau ci
 |  \t    |Tabulation (t = tabulation)                |
 |  \a    |Beep (a = alert)                           |
 |  \\\\  |Antislash (backslash)                      |
-|  \"    |Guillemet (Double quote)                   |
-|  \'    |Apostrophe (Single quote)                  |
+|  \\"   |Guillemet (Double quote)                   |
+|  \\'   |Apostrophe (Single quote)                  |
 |  \r    |Retour chariot (r = return)                |
-|  \?    |Point d'interrogation (pour les trigraphes)|
+|  \\?   |Point d'interrogation (pour les trigraphes)|
 
 A> ## Remarque
 A>
