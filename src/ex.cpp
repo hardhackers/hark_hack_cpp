@@ -22,4 +22,10 @@
         cout << "Affichage d'un slash /" << endl;
         //exemple 9
         cout << "Affichage de deux points d'interrogation et d'un slash ?\?/" << endl;
+        //exemple 10
+        cout << "Affichage de retour arrière (backspace)\bx" << endl;
+        //exemple 11
+        cout << "Affichage d'une nouvelle page :\fUne autre page" << endl;
+        //exemple 12
+        cout << "Affichage d'une tabulation verticale :\fUne ligne\fEncore une autre" << endl;
     }
