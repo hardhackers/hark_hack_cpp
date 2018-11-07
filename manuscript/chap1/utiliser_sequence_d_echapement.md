@@ -72,5 +72,5 @@ On peut donc résumer les séquences d'échappement courantes dans le tableau ci
 A> ## Remarque
 A>
 A> Comme on peut le deviner, les séquences d'échappement sont un résidu du langage C, mais il y a moyen de faire autrement en utilisant la syntaxe du C++. Par exemple **\n** à la fin d'une chaine de caractères peut être remplacé par **<< endl** .
-A> En dehors de cela, les séquences de caractères de type "octal (\nnn)", "hexadécimal (\xnn)" ou Unicode (\unnn) seront évoquées dans une partie différente de ce livre.
+A> En dehors de cela, les séquences de caractères de type **octal** (\nnn), **hexadécimal** (\xnn) ou **Unicode** (\unnn) seront évoquées dans une partie différente de ce livre.
 
