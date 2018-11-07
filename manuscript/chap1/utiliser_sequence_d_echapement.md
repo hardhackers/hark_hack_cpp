@@ -45,9 +45,9 @@ Le programme suivant permet d'afficher des lignes de texte dans la console avec 
 * Exemple 7 : insertion du passage à la ligne, "n" voulant dire "new line".
 * Exemple 8 : affichage d'un slash, pas besoin d'une séquence d'échappement.
 * Exemple 9 : affichage d'un slash précédé de deux point d'interrogation. Si on oublie le "\\" devant le deuxième "?", on déclenche un avertissement de compilation : "**warning: trigraph ??/ ignored, use -trigraphs to enable [-Wtrigraphs]**". En effet, la chaîne "??/" se nomme un trigramme (mot composé de trois lettres = "trigraph" en anglais).
-*Exemple 10 : affiche une chaine de caractère puis revient en arrière en l'effaçant et avance en écrivant un x. On remplace donc la parenthèse fermante par x.
-*Exemple 11 : affiche une nouvelle page. En réalité, passe à la ligne recopie le nombre de caractères vides de la chaîne précédente et affiche le texte.
-*Exemple 12 : les résultats sur la ligne de commande parlent d'eux même.
+* Exemple 10 : affiche une chaine de caractère puis revient en arrière en l'effaçant et avance en écrivant un x. On remplace donc la parenthèse fermante par x.
+* Exemple 11 : affiche une nouvelle page. En réalité, passe à la ligne recopie le nombre de caractères vides de la chaîne précédente et affiche le texte.
+* Exemple 12 : les résultats sur la ligne de commande parlent d'eux même.
 
 ### Résumé des séquences d'échappement (tableau)
 
