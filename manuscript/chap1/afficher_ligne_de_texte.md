@@ -167,7 +167,7 @@ On peut essayer d'enlever le "**std::**" pour voir ce que ça fait. Voici une pa
 
     ex.cpp:6:7: error: ‘cout’ was not declared in this scope
 
-En gros ceci veut dire que le compilateur nous dit que "cout" n'a pas été déclaré dans ce "champ de vision".
+En gros ceci veut dire que le compilateur nous dit que "cout" n'a pas été déclaré dans ce "champ de vision" (on appelle cela aussi la "portée"). Nous reviendrons sur cette question de portée plus tard, en particulier pour expliquer la déclaration des variables.
 
 Il nous propose quand même la solution :
 
@@ -216,6 +216,14 @@ Il est maintenant intéressant de faire une erreur dans le nom du fichier d'ent�
 On obtient l'erreur logique suivante vu que ce nom de fichier ne mêne à rien :
 
     ex.cpp:2:23: fatal error: iostrem: Aucun fichier ou dossier de ce type
+
+### Les opérateurs spéciaux :: et <<
+
+Dans le programme présent, "**::**" et "**<<**" sont des opérateurs. Je reviendrais plus tard sur l'opérateur "**:**" mais je vais parler de l'opérateur "**<<**". Il s'agit d'un opérateur d'**insertion de chaîne**. L'enchaînement des insertions se fait de droite à gauche. Par exemple dans la ligne :
+
+    cout << "hello" << endl;
+
+On commence par insérer une fin de ligne (**endl**) à la suite de la chaîne de caractères "**hello**" puis on envoie la chaîne entière dans ce que l'on appelle un "**buffer**" (une mémoire tampon). Quand le système lit ce qu'il y a dans le buffer au fur et à mesure des caractères, il finit par trouver l'instruction "**endl**" ce qui déclenche l'évènement suivant : un "**flush**" du buffer vers la sortie. Le texte apparaît alors sur l'écran de la console.
 
 Voilà, nous avons enfin terminé l'analyse de ce petit morceau de code mais pourtant riche d'enseignement !
 
