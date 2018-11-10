@@ -4,7 +4,7 @@
 
 Il est important de documenter vos fichiers sources. Le fait de documenter un programme peut vous permettre de vous rappeler dans un futur lointain ce que font vos instructions de programmation. 
 
-Un fait non connu par les développeurs débutants est que certains types de commentaires permettent de créer des documentations de façon automatique grace à des générateurs automatiques. De cette façon vous générez la documentation des objets (librairies, classes, etc) que vous créez et vous autodocumentez votre projet.
+Un fait non connu par les développeurs débutants est que certains types de commentaires permettent de créer des documentations de façon automatique grace à des générateurs automatiques. De cette façon, vous générez la documentation des objets (librairies, classes, etc) que vous créez et vous autodocumentez votre projet.
 
 ### Les différents types de commentaires
 
@@ -23,7 +23,7 @@ Voici un programme simple dans lequel on a commenté certaines instructions :
       */
     }
 
-Le programme précédent, une fois les commentaires enlevés par le processeur, se résume au programme suivant :
+Le programme précédent, une fois les commentaires enlevés par le préprocesseur, se résume au programme suivant :
 
     int main ()
     { 
@@ -34,7 +34,7 @@ Il s'agit du programme minimum en C++ !
 I> ## Information
 I>Il est important de comprendre que les commentaires vont d'abord être enlevés par le préprocesseur. Le programme débarrassé de ses commentaires sera ensuite transmis au compilateur.
 
-#### Les commentaires simples ligne
+#### Les commentaires simple ligne
 
 En **C++**, le commentaire sur une ligne s'écrit : **//**. Voici un exemple :
 
@@ -42,8 +42,11 @@ En **C++**, le commentaire sur une ligne s'écrit : **//**. Voici un exemple :
 
 W> ## Avertissement
 W> Le fait d'écrire un commentaire simple de type "**//**" sur plusieurs lignes produit une erreur de compilation.
+W>
 W> La solution consiste bien sûr à mettre "**//**" pour chaque ligne commentée comme ceci :
+W>
 W> //Une première ligne commentée.
+W>
 W> //Une deuxième ligne commentée.
 
 On peut aussi mettre un commentaire simple ligne comme ci-dessous :
