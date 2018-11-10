@@ -63,7 +63,10 @@ et génère l'erreur suivant :
 
     ex.cpp:3:15: error: missing terminating > character
 
-### Dans une chaine de caractère entourée de double quotes (" la chaine ")
+En effet, le compilateur attend un caractères "**>**" en fin de ligne !
+
+
+### Dans une chaine de caractère entourée de double quotes *" la chaine "*
 
 Le programme suivant ne compile pas :
 
