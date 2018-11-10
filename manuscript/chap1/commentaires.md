@@ -53,7 +53,7 @@ On peut aussi mettre un commentaire simple ligne comme ci-dessous :
 
     #include <iostream> //une directive include
 
-#### Les commentaires multilignes
+#### Les commentaires multiligne
 
 Une solution plus commode pour écrire des commentaires sur plusieurs lignes consiste à les déclarer avec **/*** au début du texte et ***/** à la fin.
 
@@ -88,9 +88,9 @@ Voici l'erreur retournée :
 Cette erreur est logique car pour le préprocesseur, le commentaire multiligne se finit après le le "**é**" de "**imbriqué**". Donc quand le compilateur trouve ensuite l'instruction "**Une autre ligne**", il ne comprend pas ("**'Une' does not name a type !**").
 
 W> ##Attention !
-W> Les commentaires multilignes imbriqués peuvent provoquer des erreurs.
+W> Les commentaires multiligne imbriqués peuvent provoquer des erreurs.
 
-Voilà pourquoi j'utilise d'abord les commentaires *simple ligne* pour commenter mon code et pourquoi je réserve (sauf exception) les commentaires *multilignes* pour enlever des morceaux entiers de code à des fins de tests.
+Voilà pourquoi j'utilise d'abord les commentaires *simple ligne* pour commenter mon code et pourquoi je réserve (sauf exception) les commentaires *multiligne* pour enlever des morceaux entiers de code à des fins de tests.
 
 
 
