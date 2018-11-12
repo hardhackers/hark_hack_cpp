@@ -219,11 +219,23 @@ On obtient l'erreur logique suivante vu que ce nom de fichier ne mêne à rien :
 
 ### Les opérateurs spéciaux :: et <<
 
-Dans le programme présent, "**::**" et "**<<**" sont des opérateurs. Je reviendrais plus tard sur l'opérateur "**:**" mais je vais parler de l'opérateur "**<<**". Il s'agit d'un opérateur d'**insertion de chaîne**. L'enchaînement des insertions se fait de droite à gauche. Par exemple dans la ligne :
+Dans le programme présent, "**::**" et "**<<**" sont des opérateurs. 
+
+#### L'opérateur de portée "**::**"
+
+"**::**" est ce que l'on appelle un opérateur de portée. Il permet de choisir la portée d'une variable, d'une classe ou d'autres éléments. Quand on écrit std::cout, on dit que l'on prend le flux qui se trouve dans l'espace **std** (et pas un autre espace). On vient de préciser la portée (le "**scope**" en anglais).Je reviendrais plus tard sur l'opérateur "**:**".
+
+#### L'opérateur d'insertion de chaîne "**<<**"
+
+Concernant cet opérateur, il faut préciser que l'enchaînement des insertions se fait de droite à gauche.
+
+Par exemple dans la ligne :
 
     cout << "hello" << endl;
 
-On commence par insérer une fin de ligne (**endl**) à la suite de la chaîne de caractères "**hello**" puis on envoie la chaîne entière dans ce que l'on appelle un "**buffer**" (une mémoire tampon). Quand le système lit ce qu'il y a dans le buffer au fur et à mesure des caractères, il finit par trouver l'instruction "**endl**" ce qui déclenche l'évènement suivant : un "**flush**" du buffer vers la sortie. Le texte apparaît alors sur l'écran de la console.
+on commence par insérer une fin de ligne (**endl**) à la suite de la chaîne de caractères "**hello**" puis on envoie la chaîne entière dans ce que l'on appelle un "**buffer**" (une mémoire tampon). 
+
+Quand le système lit ce qu'il y a dans le buffer au fur et à mesure des caractères, il finit par trouver l'instruction "**endl**" ce qui déclenche l'évènement suivant : un "**flush**" du buffer vers la sortie. Le texte apparaît alors sur l'écran de la console.
 
 Voilà, nous avons enfin terminé l'analyse de ce petit morceau de code mais pourtant riche d'enseignement !
 
