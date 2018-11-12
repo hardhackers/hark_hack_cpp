@@ -1,8 +1,8 @@
 ## Les types
 
-Il existe en C++ deux catégories de donnée, les types **fondamentaux** ou "**built-in**" ou "**core**" qui appartiennent au coeur du langage et les types qui sont en dehors et qui sont déclarés dans des bibliothèques comme la bibliothèque standard ou un bibliothèque tierce.
+Il existe en C++ deux catégories de donnée, les types **fondamentaux** ou "**built-in**" ou "**core**" qui appartiennent au coeur du langage et les types qui sont en dehors et qui sont déclarés dans des bibliothèques comme la bibliothèque standard ou une bibliothèque tierce.
 
-Par exemple, le type d'un caractère "**char**" est "**core**" alors que le type d'un flux "**cout**" est externe.
+Par exemple, le type d'un caractère "**char**" est "**core**" alors que le type d'un flux "**cout**" ne l'est pas.
 
 ### Obtenir les infos sur un type donné
 
@@ -12,7 +12,7 @@ La librairie <typeinfo> permet d'obtenir des informations sur les types de donné
 
 #### Les caractères simples de type **char**
 
-Les 128 premiers caractères standard décrits dans la norme **Ascii** permettent d'écrire les caractères usuels anglais. Les 128 suivant permettent de d'étendre cette norme à d'autres caractères fréquemment utilisés dans d'autres langues.
+Les 128 premiers caractères standard décrits dans la norme **Ascii** permettent d'écrire les caractères usuels anglais. Les 128 suivants permettent de d'étendre cette norme à d'autres caractères fréquemment utilisés dans d'autres langues comme les lettres accentuées du français.
 
 Pour ces 256 caractères, le type utilisé est en principe "**char**" appelé aussi "**plain char**". Par exemple le caractère '**a**', quand il est déclaré, est automatiquement un "**char**" par défaut et c'est ce que nous allons vérifier par le programme suivant :
 
@@ -28,13 +28,13 @@ Pour ces 256 caractères, le type utilisé est en principe "**char**" appelé aussi
       std::cout << "Voici la taille de char sur cet ordi : " << sizeof(char) << std::endl;
     }
 
-Dans le programme précédent, la librairie **<iostream>** permet d'utiliser "**cout**" et "**endl**". La librairie **<typeinfo>** permet de donner des informations sur les types utilisés avec la classe .
+Dans le programme précédent, la librairie **<iostream>** permet d'utiliser "**cout**" et "**endl**". La librairie **<typeinfo>** permet de donner des informations sur les types utilisés.
 
 L'opérateur "**typeid(le_type)**" de la classe "**type_info**" permet de retourner le nom d'un type (quelqu'il soit) avec la fonction "**name()**". La classe "**type_info**" se trouve dans la librairie <typeinfo>.
 
 Le type **char** est considéré de taille **1**. C'est la raison pour laquelle "**sizeof(char)**" renvoie la valeur **1**. La taille **1** correspond habituellement à un octet (8 bits) autrement dit un **byte**. Sur certains systèmes, et ceci dépend du compilateur et de la machine, la taille **1** d'un char correspond à 32 bits ou **1** groupe de 4 octets. On doit donc comprendre que **taille 1** ne veut pas toujours dire **1 octet** selon les systèmes.
 
-**Attention**, comme la valeur entière d'un **char** change selon le système, la transformation d'un char en entier peut conduire à des bugs ou des résultats inattendus. Par exemple si on transforme un entier de valeur 254 en char, il est possible que ce 255 se transforme en nombre négatif. Sur les systèmes x86 par exemple, un char sont signés (ex : -128 à +127) alors que sur processeurs **arm**, les char sont non signés (ex : 0 à 255).
+**Attention**, comme la valeur entière d'un **char** change selon le système, la transformation d'un **char** en **int** (entier) peut conduire à des bugs ou des résultats inattendus. Par exemple si on transforme un entier de valeur **254** en **char**, il est possible que ce 255 se transforme en nombre négatif. Sur les systèmes x86 par exemple, les **char** sont signés (ex : -128 à +127) alors que sur processeurs **arm**, les **char** sont non signés (ex : 0 à 255).
 
 Int étant un entier, voici un programme intéressant sur processeur x_86 ou x_64 :
 
@@ -60,7 +60,7 @@ D'une façon générale, il n'y a pas de problème quand on reste dans l'intervalle 
 
 #### Les caractères char signés ou **signed char**
 
-Les caractères de type **signed char** sont garantis "**signés**". Sur 8bit, on garantit donc qu'un entier de type 128 sera converti en nombre négatif (ce qui n'est pas garanti pour le cas d'un **char** sur un système arm par exemple).
+Les caractères de type **signed char** sont garantis "**signés**". Sur 8bit, on garantit donc qu'un entier de comme **128* sera converti en nombre négatif (ce qui n'est pas garanti pour le cas d'un **char** sur un système arm par exemple).
 
 Essayer le programme suivant :
 
@@ -83,9 +83,9 @@ Essayer le programme suivant :
       std::cout << "Voici le nom renvoyé par typeinfo : " << typeid( signed char ).name() << std::endl;
     }
 
-**Note** : le **typeinfo** renvoie la lettre "**a**" pour les **signed char**.
+**Note** : le **typeinfo** renvoie la lettre "**a**" pour les "**signed char**".
 
-#### Les caractères char non signés ou **unsigned char**
+#### Les caractères char non signés ou "unsigned char"
 
 Les caractères de type **unsigned char** sont garantis "**non signés**". Sur 8bit, on garantit donc qu'un entier de type 128 sera converti en nombre positif (ce qui n'est pas garanti pour le cas d'un **char** sur un système **Arm** par exemple).
 
@@ -110,15 +110,15 @@ Essayer le programme suivant :
       std::cout << "Voici le nom renvoyé par typeinfo : " << typeid( unsigned char ).name() << std::endl;
     }
 
-**Note** : le **typeinfo** renvoie la lettre "**h**" pour les **unsigned char**.
+**Note** : le **typeinfo** renvoie la lettre "**h**" pour les "**unsigned char**".
 
 Que se passe-t-il si on monte l'entier jusqu'à 256, 257 etc ? Eh bien on repart de 0 car le **unsigned char** ne peut pas dépasser 255 et doit rester positif (ceci peut faire penser à une roue qui tourne à l'infini et qui repasse par le point de départ (0)) !
 
-Le terme anglais pour désigner une conversion avec "**reduction**" s'appelle le "**narrowing**".
+Le terme anglais pour désigner une conversion avec "**reduction**" s'appelle le "**narrowing**" et peut comme on l'a montré produire des résultats inattendus ou difficiles à comprendre.
 
-#### Les caractères étendus du type **wchar_t**
+#### Les caractères étendus du type "**wchar_t**"
 
-Se limiter aux premiers 127 caractères est, on le conçoit, très ennuyeux. Si on veut représenter des caractères particuliers comme ceux d'unicode, ou par exemple les caractères Japonais, il faut donc plus d'espace de stockage. Le type **wchar_t** a donc été créé pour cela (**wchar** voulant dire **wide char** ou **caractères étendus**).
+Se limiter aux premiers 127 caractères est, on le conçoit, très ennuyeux. Si on veut représenter des caractères particuliers comme ceux d'**Unicode**, ou par exemple les caractères Japonais, il faut donc plus d'espace de stockage. Le type **wchar_t** a donc été créé pour cela (**wchar** voulant dire **wide char** ou **caractères étendus**).
 
 Voici un programme qui utilise les wchar_t :
 
@@ -133,18 +133,18 @@ Voici un programme qui utilise les wchar_t :
 
     }
 
-J'obtient la sortie console suivante :
+Sur mon système x_64, j'obtiens la sortie console suivante :
 
     Voici la taille de wchar_t : 4
     Voici le type id de wide char (wchar_t) : w
 
 **Note** : le **typeinfo** renvoie la lettre "**h**" pour les **wchar_t**.
 
-#### Le type prévu pour les caractères sur 16 bits : char16_t
+#### Le type prévu pour les caractères sur 16 bits : char16_t (C++11)
 
 A faire
 
-#### Le type prévu pour les caractères sur 32 bits : char32_t
+#### Le type prévu pour les caractères sur 32 bits : char32_t (C++11)
 
 A faire
 
