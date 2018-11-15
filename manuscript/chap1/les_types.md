@@ -13,11 +13,9 @@ Par exemple, le type d'un caractère "**char**" est "**core**" alors que le type 
 |   char16_t    | Jeu de caractères sur 16 bits                                     |
 |   char32_t    | Jeu de caractères sur 32 bits                                     |
 
+Les types **intégraux** regroupent les types **booléens**, **caractères** et **entiers**.
 
-
-### Obtenir les infos sur un type donné
-
-La librairie **<typeinfo>** permet d'obtenir des informations sur les types de donnés utilisées dans un programme. L'utilisation est décrite dans le paragraphe suivant.
+Les types arithmétiques regroupent les types **intégraux** et les types à **virgules flottante**.
 
 ### Le type booléen
 
@@ -82,6 +80,11 @@ Il est bien sûr possible de déclarer des valeurs booléennes directement avec **t
 
 Comme on peut le constater, ceci fonctionne aussi avec des entiers mis à "**true**" ou "**false**", comme quoi il faut expérimenter !!
 
+
+### Obtenir les infos sur un type donné
+
+La librairie **<typeinfo>** permet d'obtenir des informations sur les types de donnés utilisées dans un programme. L'utilisation est décrite dans le paragraphe suivant.
+
 ### Les types réservés pour les caractères
 
 #### Les caractères simples de type **char**
@@ -106,7 +109,7 @@ Pour ces 256 caractères, le type utilisé est en principe "**char**" appelé aussi
 
 Dans le programme précédent, la librairie **<iostream>** permet d'utiliser "**cout**" et "**endl**". La librairie **<typeinfo>** permet de donner des informations sur les types utilisés.
 
-L'opérateur "**typeid(le_type)**" de la classe "**type_info**" permet de retourner le nom d'un type (quelqu'il soit) avec la fonction "**name()**". La classe "**type_info**" se trouve dans la librairie <typeinfo>.
+L'opérateur "**typeid(le_type)**" de la classe "**type_info**" permet de retourner le nom d'un type (quelqu'il soit) avec la fonction "**name()**". La classe "**type_info**" se trouve dans la librairie **<typeinfo>**.
 
 Le type **char** est considéré de taille **1**. C'est la raison pour laquelle "**sizeof(char)**" renvoie la valeur **1**. La taille **1** correspond habituellement à un octet (8 bits) autrement dit un **byte**. Sur certains systèmes, et ceci dépend du compilateur et de la machine, la taille **1** d'un char correspond à 32 bits ou **1** groupe de 4 octets. On doit donc comprendre que **taille 1** ne veut pas toujours dire **1 octet** selon les systèmes.
 
@@ -136,7 +139,7 @@ D'une façon générale, il n'y a pas de problème quand on reste dans l'intervalle 
 
 #### Les caractères char signés ou **signed char**
 
-Les caractères de type **signed char** sont garantis "**signés**" et ne sont pas des types fondamentaux. Sur 8bit, on garantit donc qu'un entier de comme **128** sera converti en nombre négatif (ce qui n'est pas garanti pour le cas d'un **char** sur un système arm par exemple).
+Les caractères de type **signed char** sont garantis "**signés**" et ne sont pas des types fondamentaux. Sur 8 bits, on garantit donc qu'un entier de comme **128** sera converti en nombre négatif (ce qui n'est pas garanti pour le cas d'un **char** sur un système arm par exemple).
 
 Essayer le programme suivant :
 
@@ -163,7 +166,7 @@ Essayer le programme suivant :
 
 #### Les caractères char non signés ou "unsigned char"
 
-Les caractères de type **unsigned char** sont garantis "**non signés**" et ne sont pas des types fondamentaux. Sur 8bit, on garantit donc qu'un entier de type 128 sera converti en nombre positif (ce qui n'est pas garanti pour le cas d'un **char** sur un système **Arm** par exemple).
+Les caractères de type **unsigned char** sont garantis "**non signés**" et ne sont pas des types fondamentaux. Sur 8 bits, on garantit donc qu'un entier de type 128 sera converti en nombre positif (ce qui n'est pas garanti pour le cas d'un **char** sur un système **Arm** par exemple).
 
 Essayer le programme suivant :
 
@@ -285,6 +288,14 @@ Voici donc le tableau résumant les types de caractères :
 | unsigned char | char non signé (correspond à un entier positif)                   |     Non      |
 |  signed char  | char signé (correspond à un entier positif ou négatif)            |     Non      |
 
+### Les types arithmétiques
+
+
+
 ### Les types entiers
 
 A faire ...
+
+
+
+
