@@ -5,7 +5,6 @@ Il existe en C++ deux catégories de donnée, les types **fondamentaux** ou "**bui
 Par exemple, le type d'un caractère "**char**" est "**core**" alors que le type d'un flux "**cout**" ne l'est pas.
 
 {title="Les types fondamentaux du C++"}
-
 | Nom du type   |                         Description                               |
 |---------------|-------------------------------------------------------------------|
 |   bool        | Utilisé pour représenter des entités à deux états                 |
@@ -18,7 +17,7 @@ Par exemple, le type d'un caractère "**char**" est "**core**" alors que le type 
 
 ### Obtenir les infos sur un type donné
 
-La librairie **<typeinfo>** permet d'obtenir des informations sur les types de données utilisées dans un programme. L'utilisation est décrite dans le paragraphe suivant.
+La librairie **<typeinfo>** permet d'obtenir des informations sur les types de donnés utilisées dans un programme. L'utilisation est décrite dans le paragraphe suivant.
 
 ### Le type booléen
 
@@ -63,7 +62,7 @@ Il est intéressant de voir comment les entiers sont convertis en boolean. Si un 
       std::cout << "Voici le résultat pour entier nul comme z = 0 : " << mon_bool << std::endl;
     }
 
-Pour le programme si dessus, on effectue une conversion d'un entier vers un booléen avec réduction. Par exemple, le "**3**" devient un "**0**". On appelle ce processus de réduction le "narrowing". Comme on s'en doute, le fait de "réduire" un nombre peut amener des conséquences inattendues et des bugs.
+Pour le programme si dessus, on effectue une conversion d'un entier vers un booléen avec réduction. Par exemple, le "**3**" devient un "**0**". On appelle ce processus de réduction le "**narrowing**". Comme on s'en doute, le fait de "réduire" un nombre peut amener des conséquences inattendues et des bugs.
 
 Il est bien sûr possible de déclarer des valeurs booléennes directement avec **true** ou **false** :
 
@@ -87,7 +86,7 @@ Comme on peut le constater, ceci fonctionne aussi avec des entiers mis à "**true
 
 #### Les caractères simples de type **char**
 
-La première chose à savoir est qu'un char en C++ est encodé au minimum, sur 8 bits.
+La première chose à savoir est qu'un type **char** en C++ est encodé au minimum sur 8 bits.
 
 Les 128 premiers caractères standard décrits dans la norme **Ascii** permettent d'écrire les caractères usuels anglais. Les 128 suivants permettent de d'étendre cette norme à d'autres caractères fréquemment utilisés dans d'autres langues comme les lettres accentuées du français.
 
@@ -113,7 +112,7 @@ Le type **char** est considéré de taille **1**. C'est la raison pour laquelle "*
 
 **Attention**, comme la valeur entière d'un **char** change selon le système, la transformation d'un **char** en **int** (entier) peut conduire à des bugs ou des résultats inattendus. Par exemple si on transforme un entier de valeur **254** en **char**, il est possible que ce 255 se transforme en nombre négatif. Sur les systèmes x86 par exemple, les **char** sont signés (ex : -128 à +127) alors que sur processeurs **arm**, les **char** sont non signés (ex : 0 à 255).
 
-Int étant un entier, voici un programme intéressant sur processeur x_86 ou x_64 :
+**Int** étant un entier, voici un programme intéressant sur processeur **x_86** ou **x_64** :
 
     #include <iostream>
 
@@ -137,7 +136,7 @@ D'une façon générale, il n'y a pas de problème quand on reste dans l'intervalle 
 
 #### Les caractères char signés ou **signed char**
 
-Les caractères de type **signed char** sont garantis "**signés**" et ne sont pas des types fondamentaux. Sur 8bit, on garantit donc qu'un entier de comme **128* sera converti en nombre négatif (ce qui n'est pas garanti pour le cas d'un **char** sur un système arm par exemple).
+Les caractères de type **signed char** sont garantis "**signés**" et ne sont pas des types fondamentaux. Sur 8bit, on garantit donc qu'un entier de comme **128** sera converti en nombre négatif (ce qui n'est pas garanti pour le cas d'un **char** sur un système arm par exemple).
 
 Essayer le programme suivant :
 
@@ -191,7 +190,7 @@ Essayer le programme suivant :
 
 Que se passe-t-il si on monte l'entier jusqu'à 256, 257 etc ? Eh bien on repart de 0 car le **unsigned char** ne peut pas dépasser 255 et doit rester positif (ceci peut faire penser à une roue qui tourne à l'infini et qui repasse par le point de départ (0)) !
 
-Le terme anglais pour désigner une conversion avec "**reduction**" s'appelle le "**narrowing**" et peut comme on l'a montré produire des résultats inattendus ou difficiles à comprendre.
+Le terme anglais pour désigner une conversion avec "**reduction**" s'appelle le "**narrowing**" et nous en avons déjà parlé dans la partie sur les types booléens.
 
 #### Les caractères étendus du type "**wchar_t**"
 
@@ -219,9 +218,9 @@ Sur mon système x_64, j'obtiens la sortie console suivante :
 
 #### Le type prévu pour les caractères sur 16 bits : char16_t (C++11)
 
-char16_t est un type réservé pour les caractères sur 16 bits et permet en particulier de représenter le jeux de caractères UTF-16 ( un jeu de caractères étendus par rapport ASCII).
+**char16_t** est un type réservé pour les caractères sur 16 bits et permet en particulier de représenter le jeux de caractères **UTF-16** ( un jeu de caractères étendus par rapport **ASCII**).
 
-Si char représente la valeur 1 retournée par **sizeof**, alors **char16_t** devrait retourner "**2**" (2x8bits = 16). C'est ce que nous allons vérifier :
+Si char représente la valeur **1** retournée par **sizeof**, alors **char16_t** devrait retourner "**2**" (2x8bits = 16). C'est ce que nous allons vérifier :
 
     #include <iostream>
     #include <typeinfo>
@@ -234,14 +233,19 @@ Si char représente la valeur 1 retournée par **sizeof**, alors **char16_t** devr
 
     }
 
+Voici la sortie console de ce programme :
+
+    Voici la taille de char16_t : 2
+    Voici le type id de char16_t : Ds
+
 **Note** : le **typeinfo** renvoie les lettres "**Ds**" pour les **char16_t**.
 
 
 #### Le type prévu pour les caractères sur 32 bits : char32_t (C++11)
 
-char32_t est un type réservé pour les caractères sur 32 bits et permet en particulier de représenter le jeux de caractères UTF-32 (un jeu de caractères étendus par rapport ASCII).
+**char32_t** est un type réservé pour les caractères sur 32 bits et permet en particulier de représenter le jeux de caractères **UTF-32** (un jeu de caractères étendus par rapport **ASCII**).
 
-Si char représente la valeur 1 retournée par **sizeof**, alors **char32_t** devrait retourner "**4**" (4x8bits = 32). C'est ce que nous allons vérifier :
+Si char représente la valeur **1** retournée par **sizeof**, alors **char32_t** devrait retourner "**4**" (4x8bits = 32). C'est ce que nous allons vérifier :
 
     #include <iostream>
     #include <typeinfo>
@@ -254,6 +258,12 @@ Si char représente la valeur 1 retournée par **sizeof**, alors **char32_t** devr
 
     }
 
+Voici la sortie console de ce programme :
+
+    Voici la taille de char32_t : 4
+    Voici le type id de char32_t : Di
+
+
 **Note** : le **typeinfo** renvoie les lettres "**Di**" pour les **char32_t**.
 
 I> ## Remarque inportante
@@ -263,6 +273,18 @@ I> Ce n'est pas le cas pour **wchar_t**, **char16_t** et **char32_t** qui sont b
 
 #### Résumé des types caractères (tableau)
 
-A faire
+Voici donc le tableau résumant les types de caractères :
 
-#### L
+{title="Les types caractères"}
+| Nom du type   |                         Description                               | Fondamentaux |
+|---------------|-------------------------------------------------------------------|--------------|
+|   char        | Surtout utilisé pour représenter les caractères de la norme ASCII |     Oui      |
+|   wchar_t     | Utilisé pour étendre le jeu des caractères de type char           |     Oui      |
+|   char16_t    | Jeu de caractères sur 16 bits                                     |     Oui      |
+|   char32_t    | Jeu de caractères sur 32 bits                                     |     Oui      |
+| unsigned char | char non signé (correspond à un entier positif)                   |     Non      |
+|  signed char  | char signé (correspond à un entier positif ou négatif)            |     Non      |
+
+### Les types entiers
+
+A faire ...
