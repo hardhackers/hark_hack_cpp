@@ -6,23 +6,23 @@ Par exemple, le type d'un caractère "**char**" est "**core**" alors que le type 
 
 {title="Les types fondamentaux du C++"}
 
-|Nom du type|                         Description                               |
-|-----------|-------------------------------------------------------------------|
-|   bool    | Utilisé pour représenter des entités à deux états                 |
-|   char    | Surtout utilisé pour représenter les caractères de la norme ASCII |
-|   wchar_t | Utilisé pour étendre le jeu des caractères de type char           |
-|   char16_t| Jeu de caractères sur 16 bits                                     |
-|   char32_t| Jeu de caractères sur 32 bits                                     |
+| Nom du type   |                         Description                               |
+|---------------|-------------------------------------------------------------------|
+|   bool        | Utilisé pour représenter des entités à deux états                 |
+|   char        | Surtout utilisé pour représenter les caractères de la norme ASCII |
+|   wchar_t     | Utilisé pour étendre le jeu des caractères de type char           |
+|   char16_t    | Jeu de caractères sur 16 bits                                     |
+|   char32_t    | Jeu de caractères sur 32 bits                                     |
 
 
 
 ### Obtenir les infos sur un type donné
 
-La librairie <typeinfo> permet d'obtenir des informations sur les types de données utilisées dans un programme. L'utilisation est décrite dans le paragraphe suivant.
+La librairie **<typeinfo>** permet d'obtenir des informations sur les types de données utilisées dans un programme. L'utilisation est décrite dans le paragraphe suivant.
 
 ### Le type booléen
 
-Le type booléen peut avoir deux valeurs : vrai ou faux. Il est utile pour représenter des éléments de la vie réelle ayant deux états, par exemple une barrière de passage à niveau : ouverte ou fermée.
+Le type booléen peut avoir deux valeurs : **vrai** ou **faux**. Il est utile pour représenter des éléments de la vie réelle ayant deux états, par exemple une barrière de passage à niveau : **ouverte** ou **fermée**.
 
 L'initialisation de ce type (nous reviendrons sur la notion d'initialisation après) peut être le résultat d'une expression logique. Voici un petit programme qui permet de comprendre :
 
@@ -63,7 +63,7 @@ Il est intéressant de voir comment les entiers sont convertis en boolean. Si un 
       std::cout << "Voici le résultat pour entier nul comme z = 0 : " << mon_bool << std::endl;
     }
 
-Pour le programme si dessus, on effectue une conversion d'un entier vers un booléen avec réduction. Par exemple, le "**3**" devient un "**0**". On appelle ce processus de réduction du "narrowing" (réduction). Comme on s'en doute le fait de "réduire" un nombre peut amener des conséquences inattendues et des bugs.
+Pour le programme si dessus, on effectue une conversion d'un entier vers un booléen avec réduction. Par exemple, le "**3**" devient un "**0**". On appelle ce processus de réduction le "narrowing". Comme on s'en doute, le fait de "réduire" un nombre peut amener des conséquences inattendues et des bugs.
 
 Il est bien sûr possible de déclarer des valeurs booléennes directement avec **true** ou **false** :
 
@@ -81,7 +81,7 @@ Il est bien sûr possible de déclarer des valeurs booléennes directement avec **t
       std::cout << "Voici le résultat pour un entier faux : " << mon_entier_faux << std::endl;
     }
 
-Comme on peut le constater, ça fonctionne aussi avec des entiers mis à "**true**" ou "**false**"!! (Je n'ai lu ça dans aucun livre mais ce petit hack a fonctionné pour moi sans erreur de compilation, comme quoi il faut expérimenter).
+Comme on peut le constater, ceci fonctionne aussi avec des entiers mis à "**true**" ou "**false**", comme quoi il faut expérimenter !!
 
 ### Les types réservés pour les caractères
 
@@ -137,7 +137,7 @@ D'une façon générale, il n'y a pas de problème quand on reste dans l'intervalle 
 
 #### Les caractères char signés ou **signed char**
 
-Les caractères de type **signed char** sont garantis "**signés**". Sur 8bit, on garantit donc qu'un entier de comme **128* sera converti en nombre négatif (ce qui n'est pas garanti pour le cas d'un **char** sur un système arm par exemple).
+Les caractères de type **signed char** sont garantis "**signés**" et ne sont pas des types fondamentaux. Sur 8bit, on garantit donc qu'un entier de comme **128* sera converti en nombre négatif (ce qui n'est pas garanti pour le cas d'un **char** sur un système arm par exemple).
 
 Essayer le programme suivant :
 
@@ -164,7 +164,7 @@ Essayer le programme suivant :
 
 #### Les caractères char non signés ou "unsigned char"
 
-Les caractères de type **unsigned char** sont garantis "**non signés**". Sur 8bit, on garantit donc qu'un entier de type 128 sera converti en nombre positif (ce qui n'est pas garanti pour le cas d'un **char** sur un système **Arm** par exemple).
+Les caractères de type **unsigned char** sont garantis "**non signés**" et ne sont pas des types fondamentaux. Sur 8bit, on garantit donc qu'un entier de type 128 sera converti en nombre positif (ce qui n'est pas garanti pour le cas d'un **char** sur un système **Arm** par exemple).
 
 Essayer le programme suivant :
 
@@ -219,7 +219,7 @@ Sur mon système x_64, j'obtiens la sortie console suivante :
 
 #### Le type prévu pour les caractères sur 16 bits : char16_t (C++11)
 
-char16_t est un type réservé pour les caractères sur 16 bits et permet en particulier de représenter le jeux de caractères UTF-16 qui est un jeu de caractères étendus par rapport ASCII.
+char16_t est un type réservé pour les caractères sur 16 bits et permet en particulier de représenter le jeux de caractères UTF-16 ( un jeu de caractères étendus par rapport ASCII).
 
 Si char représente la valeur 1 retournée par **sizeof**, alors **char16_t** devrait retourner "**2**" (2x8bits = 16). C'est ce que nous allons vérifier :
 
@@ -239,7 +239,7 @@ Si char représente la valeur 1 retournée par **sizeof**, alors **char16_t** devr
 
 #### Le type prévu pour les caractères sur 32 bits : char32_t (C++11)
 
-char32_t est un type réservé pour les caractères sur 32 bits et permet en particulier de représenter le jeux de caractères UTF-32 qui est un jeu de caractères étendus par rapport ASCII.
+char32_t est un type réservé pour les caractères sur 32 bits et permet en particulier de représenter le jeux de caractères UTF-32 (un jeu de caractères étendus par rapport ASCII).
 
 Si char représente la valeur 1 retournée par **sizeof**, alors **char32_t** devrait retourner "**4**" (4x8bits = 32). C'est ce que nous allons vérifier :
 
@@ -256,7 +256,8 @@ Si char représente la valeur 1 retournée par **sizeof**, alors **char32_t** devr
 
 **Note** : le **typeinfo** renvoie les lettres "**Di**" pour les **char32_t**.
 
-I> Remarque inportante
+I> ## Remarque inportante
+I>
 I> On peut remarque que les types du style **xxxx_t** sont souvent des alias de types fondamentaux. 
 I> Ce n'est pas le cas pour **wchar_t**, **char16_t** et **char32_t** qui sont bien des types fondamentaux par eux-même et font donc partie des mot-clés du C++.
 
