@@ -288,10 +288,6 @@ Voici donc le tableau résumant les types de caractères :
 | unsigned char | char non signé (correspond à un entier positif)                   |     Non      |
 |  signed char  | char signé (correspond à un entier positif ou négatif)            |     Non      |
 
-### Les types arithmétiques
-
-
-
 ### Les types entiers
 
 A faire ...
