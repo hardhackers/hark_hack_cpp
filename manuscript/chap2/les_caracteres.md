@@ -1,93 +1,6 @@
-## Les types
+## Les types réservés pour les caractères
 
-Il existe en C++ deux catégories de donnée, les types **fondamentaux** ou "**built-in**" ou "**core**" qui appartiennent au coeur du langage et les types qui sont en dehors et qui sont déclarés dans des bibliothèques comme la bibliothèque standard ou une bibliothèque tierce.
-
-Par exemple, le type d'un caractère "**char**" est "**core**" alors que le type d'un flux "**cout**" ne l'est pas.
-
-{title="Les types fondamentaux du C++"}
-| Nom du type   |                         Description                               |
-|---------------|-------------------------------------------------------------------|
-|   bool        | Utilisé pour représenter des entités à deux états                 |
-|   char        | Surtout utilisé pour représenter les caractères de la norme ASCII |
-|   wchar_t     | Utilisé pour étendre le jeu des caractères de type char           |
-|   char16_t    | Jeu de caractères sur 16 bits                                     |
-|   char32_t    | Jeu de caractères sur 32 bits                                     |
-
-Les types **intégraux** regroupent les types **booléens**, **caractères** et **entiers**.
-
-Les types arithmétiques regroupent les types **intégraux** et les types à **virgules flottante**.
-
-### Le type booléen
-
-Le type booléen peut avoir deux valeurs : **vrai** ou **faux**. Il est utile pour représenter des éléments de la vie réelle ayant deux états, par exemple une barrière de passage à niveau : **ouverte** ou **fermée**.
-
-L'initialisation de ce type (nous reviendrons sur la notion d'initialisation après) peut être le résultat d'une expression logique. Voici un petit programme qui permet de comprendre :
-
-    #include <iostream>
-    
-    int main ()
-    {
-      int x = 20;
-      int y = 30;
-      //on teste si x est égal à y et on affecte la valeur du test à "mon_bool"
-      bool mon_bool = ( x == y );
-      std::cout << "Voici la valeur du booléen : " << mon_bool << std::endl;
-      y = 20;
-      //on teste à nouveau
-      mon_bool = ( x == y);
-      std::cout << "Voici la nouvelle valeur : " << mon_bool << std::endl;
-      y = 40;
-      mon_bool = ( x < y );
-      std::cout << "Voici le résultat : " << mon_bool << std::endl;
-      mon_bool = ( x > y );
-      std::cout << "Voici le résultat 4 : " << mon_bool << std::endl;
-    }
-
-Il est intéressant de voir comment les entiers sont convertis en boolean. Si un entier est différent de 0, il est converti en "true" (1). Sinon, il est converti en "false" (0). Ce petit programme le montre :
-
-    #include <iostream>
-    
-    int main ()
-    {
-      int x = 3;
-      int y = -1;
-      int z = 0;
-      bool mon_bool = x;
-      std::cout << "Voici le résultat pour un entier positif comme x = 3 : " << mon_bool << std::endl;
-      mon_bool = y;
-      std::cout << "Voici le résultat pour un entier négatif comme y = -1 : " << mon_bool << std::endl;
-      mon_bool = z;
-      std::cout << "Voici le résultat pour entier nul comme z = 0 : " << mon_bool << std::endl;
-    }
-
-Pour le programme si dessus, on effectue une conversion d'un entier vers un booléen avec réduction. Par exemple, le "**3**" devient un "**0**". On appelle ce processus de réduction le "**narrowing**". Comme on s'en doute, le fait de "réduire" un nombre peut amener des conséquences inattendues et des bugs.
-
-Il est bien sûr possible de déclarer des valeurs booléennes directement avec **true** ou **false** :
-
-    #include <iostream>
-    
-    int main ()
-    {
-      bool mon_bool_vrai = true;
-      std::cout << "Voici le résultat pour un bool true : " << mon_bool_vrai << std::endl;
-      bool mon_bool_faux = false;
-      std::cout << "Voici le résultat pour un bool faux : " << mon_bool_faux << std::endl;
-      int mon_entier_vrai = true;
-      std::cout << "Voici le résultat pour un entier vrai : " << mon_entier_vrai << std::endl;
-      int mon_entier_faux = false;
-      std::cout << "Voici le résultat pour un entier faux : " << mon_entier_faux << std::endl;
-    }
-
-Comme on peut le constater, ceci fonctionne aussi avec des entiers mis à "**true**" ou "**false**", comme quoi il faut expérimenter !!
-
-
-### Obtenir les infos sur un type donné
-
-La librairie **<typeinfo>** permet d'obtenir des informations sur les types de donnés utilisées dans un programme. L'utilisation est décrite dans le paragraphe suivant.
-
-### Les types réservés pour les caractères
-
-#### Les caractères simples de type **char**
+### Les caractères simples de type **char**
 
 La première chose à savoir est qu'un type **char** en C++ est encodé au minimum sur 8 bits.
 
@@ -137,7 +50,7 @@ Comme on peut le voir dans ce programme la transformation d'un **int** converti 
 
 D'une façon générale, il n'y a pas de problème quand on reste dans l'intervalle 0..127 (essayer). Ceci correspond à l'intervalle des caractères **Ascii**. Il est donc recommandé de se cantonner à cet intervalle pour éviter des incompatibilités.
 
-#### Les caractères char signés ou **signed char**
+### Les caractères char signés ou **signed char**
 
 Les caractères de type **signed char** sont garantis "**signés**" et ne sont pas des types fondamentaux. Sur 8 bits, on garantit donc qu'un entier de comme **128** sera converti en nombre négatif (ce qui n'est pas garanti pour le cas d'un **char** sur un système arm par exemple).
 
@@ -164,7 +77,7 @@ Essayer le programme suivant :
 
 **Note** : le **typeinfo** renvoie la lettre "**a**" pour les "**signed char**".
 
-#### Les caractères char non signés ou "unsigned char"
+### Les caractères char non signés ou "unsigned char"
 
 Les caractères de type **unsigned char** sont garantis "**non signés**" et ne sont pas des types fondamentaux. Sur 8 bits, on garantit donc qu'un entier de type 128 sera converti en nombre positif (ce qui n'est pas garanti pour le cas d'un **char** sur un système **Arm** par exemple).
 
@@ -195,7 +108,7 @@ Que se passe-t-il si on monte l'entier jusqu'à 256, 257 etc ? Eh bien on repart 
 
 Le terme anglais pour désigner une conversion avec "**reduction**" s'appelle le "**narrowing**" et nous en avons déjà parlé dans la partie sur les types booléens.
 
-#### Les caractères étendus du type "**wchar_t**"
+### Les caractères étendus du type "**wchar_t**"
 
 Se limiter aux premiers 127 caractères est, on le conçoit, très ennuyeux. Si on veut représenter des caractères particuliers comme ceux d'**Unicode**, ou par exemple les caractères Japonais, il faut donc plus d'espace de stockage. Le type **wchar_t** a donc été créé pour cela (**wchar** voulant dire **wide char** ou **caractères étendus**).
 
@@ -219,7 +132,7 @@ Sur mon système x_64, j'obtiens la sortie console suivante :
 
 **Note** : le **typeinfo** renvoie la lettre "**h**" pour les **wchar_t**.
 
-#### Le type prévu pour les caractères sur 16 bits : char16_t (C++11)
+### Le type prévu pour les caractères sur 16 bits : char16_t (C++11)
 
 **char16_t** est un type réservé pour les caractères sur 16 bits et permet en particulier de représenter le jeux de caractères **UTF-16** ( un jeu de caractères étendus par rapport **ASCII**).
 
@@ -244,7 +157,7 @@ Voici la sortie console de ce programme :
 **Note** : le **typeinfo** renvoie les lettres "**Ds**" pour les **char16_t**.
 
 
-#### Le type prévu pour les caractères sur 32 bits : char32_t (C++11)
+### Le type prévu pour les caractères sur 32 bits : char32_t (C++11)
 
 **char32_t** est un type réservé pour les caractères sur 32 bits et permet en particulier de représenter le jeux de caractères **UTF-32** (un jeu de caractères étendus par rapport **ASCII**).
 
@@ -274,7 +187,7 @@ I>
 I> On peut remarque que les types du style **xxxx_t** sont souvent des alias de types fondamentaux. 
 I> Ce n'est pas le cas pour **wchar_t**, **char16_t** et **char32_t** qui sont bien des types fondamentaux par eux-même et font donc partie des mot-clés du C++.
 
-#### Résumé des types caractères (tableau)
+### Résumé des types caractères (tableau)
 
 Voici donc le tableau résumant les types de caractères :
 
@@ -287,11 +200,3 @@ Voici donc le tableau résumant les types de caractères :
 |   char32_t    | Jeu de caractères sur 32 bits                                     |     Oui      |
 | unsigned char | char non signé (correspond à un entier positif)                   |     Non      |
 |  signed char  | char signé (correspond à un entier positif ou négatif)            |     Non      |
-
-### Les types entiers
-
-A faire ...
-
-
-
-

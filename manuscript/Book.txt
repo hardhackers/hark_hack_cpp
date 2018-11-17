@@ -6,4 +6,9 @@ chap1/programme_minimaliste.md
 chap1/afficher_ligne_de_texte.md
 chap1/utiliser_sequence_d_echapement.md
 chap1/les_espaces_blancs.md
-chap1/les_types.md
+_chap2.md
+chap2/les_differentes_categories_de_type.md
+chap2/les_booleens.md
+chap2/obtenir_des_infos.md
+chap2/les_caracteres.md
+chap2/les_entiers.md
