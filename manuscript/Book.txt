@@ -4,7 +4,7 @@ chap1/make.md
 chap1/commentaires.md
 chap1/programme_minimaliste.md
 chap1/afficher_ligne_de_texte.md
-chap1/utiliser_sequence_d_echapement.md
+chap1/utiliser_sequence_d_echappement.md
 chap1/les_espaces_blancs.md
 _chap2.md
 chap2/les_differentes_categories_de_type.md

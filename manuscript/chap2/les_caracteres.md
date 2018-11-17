@@ -50,7 +50,7 @@ Comme on peut le voir dans ce programme la transformation d'un **int** converti 
 
 D'une façon générale, il n'y a pas de problème quand on reste dans l'intervalle 0..127 (essayer). Ceci correspond à l'intervalle des caractères **Ascii**. Il est donc recommandé de se cantonner à cet intervalle pour éviter des incompatibilités.
 
-### Les caractères char signés ou **signed char**
+### Les caractères char signés ou "signed char"
 
 Les caractères de type **signed char** sont garantis "**signés**" et ne sont pas des types fondamentaux. Sur 8 bits, on garantit donc qu'un entier de comme **128** sera converti en nombre négatif (ce qui n'est pas garanti pour le cas d'un **char** sur un système arm par exemple).
 
@@ -186,6 +186,121 @@ I> ## Remarque inportante
 I>
 I> On peut remarque que les types du style **xxxx_t** sont souvent des alias de types fondamentaux. 
 I> Ce n'est pas le cas pour **wchar_t**, **char16_t** et **char32_t** qui sont bien des types fondamentaux par eux-même et font donc partie des mot-clés du C++.
+
+### Les caractères littéraux
+
+Un caractère littéral est un simple caractère entouré de simples apostrophes comme 'z' ou '1'. Comme nous l'avons vu précédemment dans la partie consacré aux caractères de type "**char**", les caractères littéraux sont automatiquement convertis dans ce type là.
+
+Dans la table des caractères ASCII, il est préférable de déclarer les caractères littéraux sous leur forme entre simple quote comme 'a' plutôt que sous leur forme entière ('a' correspond à l'entier 97) et ceci pour des raisons de portabilité du programme.
+
+Nous avons déjà vu les caractères d'échappements précédés par le caractère **\\**. Il nous reste néanmoins deux types de caractères d'échappement que nous n'avons pas vu : les séquences d'échappement de type "Nombre octal" et "Nombre hexadécimal"
+
+#### Rappel sur les bases de numération
+
+Nous utilisons habituellement la base 10. Les unités vont de 0 à 9 et on passe forme une dizaine dès 10 unités. C'est une simple façon de regrouper des nombres et de les représenter. On peut généraliser en disant que si on utilise une base x, les unités vont de 0 à x-1 et on commence à faire un groupe à partir de x.
+
+Par exemple en binaire (base 2), les unités sont **0** et **1** et on commence à faire un groupe à partir de 2, ce que l'on pourrait appeler une "deuzaine" (ce terme n'est pas usité). Donc en base deux par exemple, on a **0**, **1** pour les unités puis on passe ensuite à **10** (une deuzaine et 0 unités) correspondant à **2** en base dix, puis on a **11** (une deuzaine et 1 unité) et ainsi de suite.
+
+#### Les séquences de type "Nombre octal"
+
+Un nombre octal se réprésente sous la forme **\\o** ou **\\oo** ou **\\ooo** ou **o** est un chiffre en base 8 (de 0 à 7). Les unités en octal vont de 0 à 7 et ensuite on passe à la "huitaine". Par exemple **\\11** nous donne une huitaine et une unité soit **9** en base 10. **\\100** nous donne huit huitaines soit le nombre 64 en base 10 (8x8).
+
+Donc \\777 correspond à 7x64 + 7x8 + 7 soit \\1000 moins 1 soit 511.
+
+Donc pour notre caractère **'a'**, il peut s'écrire **97** en base 10 ou \\141 (1x64 + 4x8 + 1)
+
+Voici donc un programme pour écrire un 'a' :
+
+    #include <iostream>
+    
+    int main()
+    {
+      std::cout << "Voici le char \'\141\' ou 97 en base 10 ou \\141 en octal !" << std::endl;
+    }
+
+Il faut tout de même constater que **\'** permet de faire sortir les apostrophes **'** autour du **'a'** et que \\\\ permet d'écrire le double antislash.
+
+Comme je l'ai précisé, on ne peut écrire que qu'un nombre de type **\\ooo**, ce qui veut dire que le caractère suivant (un **1**) dans l'exemple ci-dessous est écrit normalement :
+
+    #include <iostream>
+    
+    int main()
+    {
+      std::cout << "Voici la chaîne \'\1411\' ou \'a1\'!" << std::endl;
+    }
+
+On obtient donc "a1" avec \\1411. Il faut bien maîtriser les règles donc !
+
+D'autre part, si on rencontre un caractère non octal (comme **8**), la chaîne octale est interrompue :
+
+    #include <iostream>
+    
+    int main()
+    {
+      std::cout << "Voici la chaîne \'\778\' ou \'?8\'!" << std::endl;
+    }
+
+On voit donc que l'on retrouve une chaîne "normale" après le **77** car **8** n'est pas un caractère octal (il ne fait pas partie de l'intervalle **0** à **7**).
+
+Un petit amusement consiste à représenter un caractère ASCII non visible comme espace (\\040 en octal et 32 en décimal) :
+
+    #include <iostream>
+    
+    int main()
+    {
+      std::cout << "Voici deux espaces : \'\040\040\' ou \'  \' ! Amusant, non \77" << std::endl;
+    }
+
+Contrairement aux apparences des séquences telles que \\77 ne réprésente qu'un caractère littéral (ici un espace).
+
+I> ## Note importante
+I> 
+I> Si on veut rester dans l'intervalle des caractères ASCII pour des raisons de portabilité du programme, il faudra ne pas dépasser le caractère \\177 (127 en décimal).
+
+#### Les séquences de type "Nombre hexadécimal"
+
+Un nombre octal se réprésente sous la forme **\\xh** ou **\\xhh** ou **\\uhhhh** ou **\\U0000hhhh** ou **h"" est un chiffre en base 16 (de 0 à f). Les unités en hexadécimal vont de 0 à 7 et de a à f. Après le **f** on passe à la "seizaine" (16 en base 10). Par exemple **\\xf2** nous donne une 15 seizaines et deux unités (15*16 + 2) soit **242** en base 10. **\\x100** nous donne 16x16 (16 puissance 2) soit le nombre 256 en base 10.
+
+Un convertisseur en ligne : <https://www.rapidtables.com/convert/number/base-converter.html> permet de faire le travail plus rapidement mais le cerveau, une fois habitué à ces conversions peut aussi faire rapidement le travail. Ce nécéssite de l'entraînement bien sûr.
+
+Les caractères hexadécimaux permettent d'étendre les caractères ASCII pour représenter des caractères UNICODE par exemple. 
+
+Quand on réprésente des caractères ASCII, on peut les représenter sous la forme \\xh ou \\xhh
+
+    #include <iostream>
+    
+    int main()
+    {
+      std::cout << "Voici un caractère de ASCII de tabulation : \'\x9\' ou \'\x09\'" << std::endl;
+    } 
+
+Pour représenter un caractère Unicode, on peut le représenter sous la forme courte \\uhhhh ou longue \\U0000hhhh :
+
+    #include <iostream>
+    
+    int main()
+    {
+      // Voici des caractères Japonais
+      std::cout << "Voici deux caractères unicode : \'\u8888\' ou \'\U00008889\' " << std::endl;
+      // Voic des caractères inaffichables sur ma console
+      std::cout << "En voici deux autres : \'\uabcd\' ou \'\U0000ffff\' "<< std::endl;
+    } 
+
+Pour les caractères que votre console n'arrive pas à représenter, il y a en général affichage d'un carré avec les lettres de votre caractère unicode dedans. On peut indifféremment écrire des majuscules ou des minuscules \'uabcd\' ou \'uABCD\'.
+
+Certains intervalles de caractères produisent des erreurs :
+
+    #include <iostream>
+    
+    int main()
+    {
+      std::cout << "Voici un caractère qui ne passe pas : \'\udead\' " << std::endl;
+    } 
+
+Voici la sortie d'erreur qui en résulte :
+
+    ex.cpp:5:20: error: \udead is not a valid universal character
+
 
 ### Résumé des types caractères (tableau)
 

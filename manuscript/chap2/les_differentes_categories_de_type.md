@@ -15,4 +15,4 @@ Par exemple, le type d'un caractère "**char**" est "**core**" alors que le type 
 
 Les types **intégraux** regroupent les types **booléens**, **caractères** et **entiers**.
 
-Les types arithmétiques regroupent les types **intégraux** et les types à **virgules flottante**.
+Les types arithmétiques regroupent les types **intégraux** et les types à **virgules flottantes**.
