@@ -197,7 +197,7 @@ Nous avons déjà vu les caractères d'échappements précédés par le caractère **\\*
 
 #### Rappel sur les bases de numération
 
-Nous utilisons habituellement la base 10. Les unités vont de 0 à 9 et on passe forme une dizaine dès 10 unités. C'est une simple façon de regrouper des nombres et de les représenter. On peut généraliser en disant que si on utilise une base x, les unités vont de 0 à x-1 et on commence à faire un groupe à partir de x.
+Nous utilisons habituellement la base 10. Les unités vont de 0 à 9 et on forme une dizaine dès 10 unités. C'est une simple façon de regrouper des nombres et de les représenter. On peut généraliser en disant que si on utilise une base x, les unités vont de 0 à x-1 et on commence à faire un groupe à partir de x.
 
 Par exemple en binaire (base 2), les unités sont **0** et **1** et on commence à faire un groupe à partir de 2, ce que l'on pourrait appeler une "deuzaine" (ce terme n'est pas usité). Donc en base deux par exemple, on a **0**, **1** pour les unités puis on passe ensuite à **10** (une deuzaine et 0 unités) correspondant à **2** en base dix, puis on a **11** (une deuzaine et 1 unité) et ainsi de suite.
 
@@ -218,7 +218,7 @@ Voici donc un programme pour écrire un 'a' :
       std::cout << "Voici le char \'\141\' ou 97 en base 10 ou \\141 en octal !" << std::endl;
     }
 
-Il faut tout de même constater que **\'** permet de faire sortir les apostrophes **'** autour du **'a'** et que \\\\ permet d'écrire le double antislash.
+Il faut tout de même constater que **\\'** permet de faire sortir les apostrophes **'** autour du **'a'** et que \\\\ permet d'écrire le double antislash.
 
 Comme je l'ai précisé, on ne peut écrire que qu'un nombre de type **\\ooo**, ce qui veut dire que le caractère suivant (un **1**) dans l'exemple ci-dessous est écrit normalement :
 
@@ -259,13 +259,13 @@ I> Si on veut rester dans l'intervalle des caractères ASCII pour des raisons de 
 
 #### Les séquences de type "Nombre hexadécimal"
 
-Un nombre octal se réprésente sous la forme **\\xh** ou **\\xhh** ou **\\uhhhh** ou **\\U0000hhhh** ou **h"" est un chiffre en base 16 (de 0 à f). Les unités en hexadécimal vont de 0 à 7 et de a à f. Après le **f** on passe à la "seizaine" (16 en base 10). Par exemple **\\xf2** nous donne une 15 seizaines et deux unités (15*16 + 2) soit **242** en base 10. **\\x100** nous donne 16x16 (16 puissance 2) soit le nombre 256 en base 10.
+Un nombre hexadécimal se représente sous la forme **\\xh** ou **\\xhh** ou **\\uhhhh** ou **\\U0000hhhh** ou **h** est un chiffre en base 16 (de 0 à f). Les unités en hexadécimal vont de 0 à 7 et de a à f. Après le **f** on passe à la "seizaine" (16 en base 10). Par exemple **\\xf2** nous donne 15 seizaines et deux unités (15*16 + 2) soit **242** en base 10. **\\x100** nous donne 16x16 (16 puissance 2) soit le nombre 256 en base 10.
 
-Un convertisseur en ligne : <https://www.rapidtables.com/convert/number/base-converter.html> permet de faire le travail plus rapidement mais le cerveau, une fois habitué à ces conversions peut aussi faire rapidement le travail. Ce nécéssite de l'entraînement bien sûr.
+Un convertisseur en ligne : <https://www.rapidtables.com/convert/number/base-converter.html> permet de faire le travail plus rapidement mais le cerveau, une fois habitué à ces conversions peut tout aussi bien faire le travail. Ceci nécessite de l'entraînement bien sûr.
 
 Les caractères hexadécimaux permettent d'étendre les caractères ASCII pour représenter des caractères UNICODE par exemple. 
 
-Quand on réprésente des caractères ASCII, on peut les représenter sous la forme \\xh ou \\xhh
+Quand on représente des caractères ASCII, on peut les représenter sous la forme \\xh ou \\xhh
 
     #include <iostream>
     
