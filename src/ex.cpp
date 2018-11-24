@@ -1,6 +1,12 @@
     #include <iostream>
-    
-    int main()
+    #include <typeinfo>
+
+    int main ()
     {
-      std::cout << "Voici un caractère qui ne passe pas : \'\udead\' " << std::endl;
+
+      std::cout << "Voici la taille de signed int : " << sizeof(signed) << std::endl;
+      std::cout << "Voici le type id de signed int : " << typeid(signed int).name() << std::endl;
+
     }
+
+
