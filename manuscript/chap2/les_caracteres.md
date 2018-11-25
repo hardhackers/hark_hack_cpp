@@ -130,7 +130,7 @@ Sur mon système x_64, j'obtiens la sortie console suivante :
     Voici la taille de wchar_t : 4
     Voici le type id de wide char (wchar_t) : w
 
-**Note** : le **typeinfo** renvoie la lettre "**h**" pour les **wchar_t**.
+**Note** : le **typeinfo** renvoie la lettre "**w**" pour les **wchar_t**.
 
 ### Le type prévu pour les caractères sur 16 bits : char16_t (C++11)
 
