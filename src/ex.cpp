@@ -1,26 +1,24 @@
     #include <iostream>
-    #include <climits>
-    #include <cmath>
+    #include <typeinfo>
 
     int main ()
     {
-      std::cout << "Taille d'un short int (signé ou non) : " << sizeof(short int) << std::endl;
-      std::cout << "Nombre de bits dans un short : " << CHAR_BIT << std::endl;
 
-      // on multiplie la taille par le nombre de bits d'un char sur ce système
-      int nombre_bit_total = CHAR_BIT*sizeof(short int);
-      // on calcule la puissance de 2 sur le nombre de bits total -1 pour les signés
-      int nombre_max = pow(2,nombre_bit_total-1); 
+      // test avec signed char
+      std::cout << "Voici le type id d'un signed char : " << typeid(signed char).name() << std::endl;
+      // test avec int8_t
+      std::cout << "Voici le type id d'un int8_t : " << typeid(int8_t).name() << std::endl;
+      // test avec short
+      std::cout << "Voici le type id d'un short int : " << typeid(short int).name() << std::endl;
+      // test avec int16_t
+      std::cout << "Voici le type id d'un int16_t : " << typeid(int16_t).name() << std::endl;
+      // test avec int
+      std::cout << "Voici le type id d'un int : " << typeid(int).name() << std::endl;
+      // test avec int32_t
+      std::cout << "Voici le type id d'un int32_t : " << typeid(int32_t).name() << std::endl;
+      // test avec long int
+      std::cout << "Voici le type id long int : " << typeid(long int).name() << std::endl;
+      // test avec int64_t
+      std::cout << "Voici le type id d'un int64_t : " << typeid(int64_t).name() << std::endl;
 
-      std::cout << "Un short int signé ira de (calcul) -"<< nombre_max << " jusqu'à " << nombre_max -1 << std::endl;
-      std::cout << "Un short int signé ira de (avec climits) " << SHRT_MIN << " jusqu'à " << SHRT_MAX << std::endl; 
-
-      // on calcule la puissance de 2 sur le nombre de bits total pour les non signés
-      nombre_max = pow(2, nombre_bit_total);
-      std::cout << "Un short int non signé ira de (calcul) 0 jusqu'à " << nombre_max -1 << std::endl;
-
-
-      std::cout << "Taille d'un int (signé ou non) : " << sizeof(int) << std::endl;
-      std::cout << "Taille d'un long int (signé ou non) : " << sizeof(long int) << std::endl;
-      std::cout << "Taille d'un long long int (signé ou non) : "<< sizeof(long long int) << std::endl;
     }
