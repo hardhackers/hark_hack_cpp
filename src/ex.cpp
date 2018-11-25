@@ -1,24 +1,26 @@
     #include <iostream>
     #include <typeinfo>
-
     int main ()
     {
 
-      // test avec signed char
-      std::cout << "Voici le type id d'un signed char : " << typeid(signed char).name() << std::endl;
-      // test avec int8_t
-      std::cout << "Voici le type id d'un int8_t : " << typeid(int8_t).name() << std::endl;
-      // test avec short
-      std::cout << "Voici le type id d'un short int : " << typeid(short int).name() << std::endl;
-      // test avec int16_t
-      std::cout << "Voici le type id d'un int16_t : " << typeid(int16_t).name() << std::endl;
-      // test avec int
-      std::cout << "Voici le type id d'un int : " << typeid(int).name() << std::endl;
-      // test avec int32_t
-      std::cout << "Voici le type id d'un int32_t : " << typeid(int32_t).name() << std::endl;
-      // test avec long int
-      std::cout << "Voici le type id long int : " << typeid(long int).name() << std::endl;
-      // test avec int64_t
-      std::cout << "Voici le type id d'un int64_t : " << typeid(int64_t).name() << std::endl;
+      auto mon_int_unsigned{13U};
+      auto mon_int_long{13L};
+      auto mon_int_unsigned_long_long{13ULL};
+      // Ok
+      auto mon_int_unsigned_long_long2{13LLU};
+      // Pas ok
+      //auto mon_int_unsigned_long_long2{13LUL};
+      auto mon_hexa{0xAAULL};
 
+      std::cout << "Mon entier entier non signé : " << mon_int_unsigned << std::endl;
+      std::cout << "Type id : " << typeid(mon_int_unsigned).name() << std::endl;
+      std::cout << "Mon entier entier long : " << mon_int_long << std::endl;
+      std::cout << "Type id : " << typeid(mon_int_long).name() << std::endl;
+      std::cout << "Mon entier entier non signé long long : " << mon_int_unsigned_long_long << std::endl;
+      std::cout << "Type id : " << typeid(mon_int_unsigned_long_long).name() << std::endl;
+      std::cout << "Mon entier entier non signé long long 2 : " << mon_int_unsigned_long_long2 << std::endl;
+      std::cout << "Type id : " << typeid(mon_int_unsigned_long_long2).name() << std::endl;
+      std::cout << "Mon entier hexa non signé long long : " << mon_hexa << std::endl;
+      std::cout << "Type id : " << typeid(mon_hexa).name() << std::endl;
+      std::cout << "Un dernier essai sans initialisation avec auto : " << 178LL << std::endl;
     }
