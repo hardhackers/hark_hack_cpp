@@ -156,7 +156,6 @@ Voici la sortie console de ce programme :
 
 **Note** : le **typeinfo** renvoie les lettres "**Ds**" pour les **char16_t**.
 
-
 ### Le type prévu pour les caractères sur 32 bits : char32_t (C++11)
 
 **char32_t** est un type réservé pour les caractères sur 32 bits et permet en particulier de représenter le jeux de caractères **UTF-32** (un jeu de caractères étendus par rapport **ASCII**).
@@ -301,6 +300,66 @@ Voici la sortie d'erreur qui en résulte :
 
     ex.cpp:5:20: error: \udead is not a valid universal character
 
+#### Les séquences de type char16_t
+
+On peut aussi déclarer un caractère **char16_t** de façon littérale avec la notation **u'x'** ou x est le caractère comme suit :
+
+    #include <iostream>
+    #include <typeinfo>
+
+    int main ()
+    {
+      std::cout << "Mon caractère char16_t : " << u'b' << std::endl;
+      std::cout << "Voici le type id de char16_t : " << typeid(u'b').name() << std::endl;
+    }
+
+La sortie est la suivante :
+
+    Mon caractère char16_t : 98
+    Voici le type id de char16_t : Ds
+
+On voit que **u'b'** a été converti en l'entier 98 et que l'on obtient bien un **Ds** qui  est la signature des caractères de type **char16_t**.
+
+#### Les séquences de type char32_t
+
+On peut aussi déclarer un caractère **char32_t** de façon littérale avec la notation **U'x'** ou x est le caractère comme suit :
+
+    #include <iostream>
+    #include <typeinfo>
+
+    int main ()
+    {
+      std::cout << "Mon caractère char32_t : " << U'b' << std::endl;
+      std::cout << "Voici le type id de char32_t : " << typeid(U'b').name() << std::endl;
+    }
+
+La sortie est la suivante :
+
+Mon caractère char32_t : 99
+Voici le type id de char32_t : Di
+
+On voit que **U'b'** a été converti en l'entier 99 et que l'on obtient bien un **Di** qui  est la signature des caractères de type **char32_t**.
+
+#### Les séquences de type wchar_t
+
+On peut aussi déclarer un caractère **wchar_t** de façon littérale avec la notation **L'x'** ou x est le caractère comme suit :
+
+    #include <iostream>
+    #include <typeinfo>
+
+    int main ()
+    {
+      std::cout << "Mon caractère wchar_t : " << L'z' << std::endl;
+      std::cout << "Voici le type id de wchar_t : " << typeid(L'z').name() << std::endl;
+    }
+
+La sortie est la suivante :
+
+Mon caractère wchar_t : 122
+Voici le type id de wchar_t : w
+
+
+On voit que **L'z'** a été converti en l'entier 122 et que l'on obtient bien un **w** qui  est la signature des caractères de type **wchar_t**.
 
 ### Résumé des types caractères (tableau)
 
