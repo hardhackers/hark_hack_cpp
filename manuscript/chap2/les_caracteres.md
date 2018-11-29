@@ -24,7 +24,7 @@ Dans le programme précédent, la librairie **<iostream>** permet d'utiliser "**co
 
 L'opérateur "**typeid(le_type)**" de la classe "**type_info**" permet de retourner le nom d'un type (quelqu'il soit) avec la fonction "**name()**". La classe "**type_info**" se trouve dans la librairie **<typeinfo>**.
 
-Le type **char** est considéré de taille **1**. C'est la raison pour laquelle "**sizeof(char)**" renvoie la valeur **1**. La taille **1** correspond habituellement à un octet (8 bits) autrement dit un **byte**. Sur certains systèmes, et ceci dépend du compilateur et de la machine, la taille **1** d'un char correspond à 32 bits ou **1** groupe de 4 octets. On doit donc comprendre que **taille 1** ne veut pas toujours dire **1 octet** selon les systèmes.
+Le type **char** est considéré de taille **1** et est l'unité de base pour les tailles des autres types. C'est la raison pour laquelle "**sizeof(char)**" renvoie toujours la valeur **1**. La taille **1** correspond habituellement à un octet (8 bits) autrement dit un **byte**. Sur certains systèmes, et ceci dépend du compilateur et de la machine, la taille **1** d'un char correspond à 32 bits ou **1** groupe de 4 octets. On doit donc comprendre que **taille 1** ne veut pas toujours dire **1 octet** selon les systèmes.
 
 **Attention**, comme la valeur entière d'un **char** change selon le système, la transformation d'un **char** en **int** (entier) peut conduire à des bugs ou des résultats inattendus. Par exemple si on transforme un entier de valeur **254** en **char**, il est possible que ce 255 se transforme en nombre négatif. Sur les systèmes x86 par exemple, les **char** sont signés (ex : -128 à +127) alors que sur processeurs **arm**, les **char** sont non signés (ex : 0 à 255).
 

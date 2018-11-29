@@ -13,3 +13,5 @@ chap2/obtenir_des_infos.md
 chap2/les_caracteres.md
 chap2/les_entiers.md
 chap2/les_flottants.md
+chap2/void.md
+chap2/declaration_initialisation.md
