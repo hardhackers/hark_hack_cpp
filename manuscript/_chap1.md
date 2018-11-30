@@ -1,4 +1,4 @@
-# Chapitre 1
+# Chapitre 1 : Mise en place du système
 
-Mise en place du système.
+
 

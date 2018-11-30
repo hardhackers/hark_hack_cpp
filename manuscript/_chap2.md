@@ -1,4 +1,4 @@
-# Chapitre 2
+# Chapitre 2 : Les types de données
 
-Les types de données
+
 
