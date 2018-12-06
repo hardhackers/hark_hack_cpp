@@ -1,18 +1,13 @@
-    #include <iostream>
+    #include<iostream>
 
-    int mon_int1{5};
-    
     int main()
     {
-   
-      std::cout << "Voici l'entier 1 qui est une variable globale : " << mon_int1 << std::endl;
-      int mon_int1{4};
-      std::cout << "Voici l'entier 1 à l'intérieur de main : " << mon_int1 << std::endl;
-      //pas ok
-      int mon_int1{3};
-        {
-          //ok
-          int mon_int1{2};
-          std::cout << "Voici un autre entier 1 à l'intérieur d'un espace de nom inclus dans main : " << mon_int1 << std::endl;
-         }
+      int mon_entier{654444};
+      std::cout << "Affichage de l'entier : " << mon_entier << std::endl;
+      int* mon_pointeur = &mon_entier;
+      int mon_entier2 = *mon_pointeur;
+      std::cout << "Affichage de l'entier mis dans un entier : " << mon_entier2 << std::endl; 
+      char mon_char = *mon_pointeur;
+      int mon_entier3 = mon_char;
+      std::cout << "Affichage de l'entier mis dans un char : " << mon_entier3 << std::endl; 
     }

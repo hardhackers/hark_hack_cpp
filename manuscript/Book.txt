@@ -15,3 +15,5 @@ chap2/les_entiers.md
 chap2/les_flottants.md
 chap2/void.md
 chap2/declaration_initialisation.md
+_chap3.md
+chap3/les_pointeurs.md
