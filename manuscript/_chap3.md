@@ -1,4 +1,4 @@
-# Chapitre 2 : Les pointeurs, les alias et les références
+# Chapitre 3 : Les pointeurs, les alias et les références
 
 
 
